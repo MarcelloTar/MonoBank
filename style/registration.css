@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    height: 100vh;
+    background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.box{
+    width: 1240px;
+    height: 785px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 0 4px 70px 0 rgba(0,0,0,0.7);
+    display: flex;
+
+}
+.logo_box{
+    position: absolute;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    top: 30px;
+    left: 25px;
+}
+.box_left {
+    width: 50%;
+    height: 100%;
+    border-right: 3px solid #D7D6D6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box_left h1{
+    font-size: 50px;
+    width: 70%;
+    margin-bottom: 37px;
+}
+.box_email {
+    margin-bottom: 79px;
+    position: relative;
+}
+/* #emailInp{
+    width: 365px;
+    height: 66px;
+    padding-left: 35px;
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #000;
+    font-size: 28px;
+} */
+.send{
+    position: absolute;
+    left: 376px;
+    top: -4px;
+    transform: rotate(0.9turn);
+    /* cursor: pointer; */
+}
+.send button{
+    background: #00000000;
+    border: none;
+    width: 81px;
+    height: 76px;
+    cursor: pointer;
+}
+.box_inputEmail{
+    display: flex;
+}
+.box_inputEmail::after {
+    content: '';
+    height: 64px;
+    width: 86px;
+    background-color: #734EE6;
+    border-radius: 0 20px 20px 0;
+    border: 1px solid #000;
+}
+.stage_box {
+    display: flex;
+    gap: 135px;
+    position: relative;
+}
+.stage {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #7E55E4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 28px;
+    color: #000;
+    /* margin: 0 10px; */
+}
+.active{
+    background-color: #7E55E4;
+    color: #FFFFFF;
+}
+.stage:not(:last-child)::after{
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 1px;
+    background-color: #000000;
+}
+.stage:first-child::after{
+    left: 80px;
+}
+.stage:nth-child(2)::after{
+    left: 275px;
+}
+.stage:not(:first-child)::before{
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 1px;
+    background-color: #000000;
+    /* margin: 0 21px 0 17px ; */
+}
+
+
+.stage:nth-child(2)::before{
+    left: 140px;
+}
+.stage:last-child::before{
+    left: 333px;
+}
+.box_right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+
+
+
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:focus {
+    outline: none !important;
+
+}
+
+.code_box {
+    margin-bottom: 21px;
+}
+.codeText{
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+.code {
+    width: 66px;
+    height: 74px;
+    border: none;
+    border-bottom: 2px solid #000000;
+    font-size: 60px;
+    text-align: center;
+}
+.code:not(:last-child){
+    margin-right: 26px;
+}
+.confirm{
+    width: 279px;
+    height: 54px;
+    background-color: #7E55E4;
+    font-size: 40px;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    cursor: pointer;
+}
+.confirm:hover{
+    background-color: #6c3de4;
+}
+
+
+
+
+.box_pasworld{
+    display: grid;
+    grid-template-columns: repeat(2, 242px);
+    grid-template-rows: repeat(2, 78px);
+    row-gap: 14px;
+    column-gap: 27px;
+    margin-bottom: 29px;
+}
+.box_pasworld_content p{
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+.box_pasworld_content input, .input{
+    width: 100%;
+    height: 49px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    font-size: 25px;
+    padding-left: 10px;
+}
+.input{
+    width: 400px;
+}
+.confirm2{
+    width: 169px;
+    height: 42px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    background-color: #7E55E4;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 36px;
+}
+
+.confirm2:hover{
+    background-color: #6c40db;
+}

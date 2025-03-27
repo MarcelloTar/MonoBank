@@ -1,0 +1,336 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    height: 100vh;
+}
+.headerLogoImg{
+    width: 50px;
+    height: 50px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 65px;
+}
+.box_imgName {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.myName{
+    /* color: #000; */
+    font-size: 30px;
+    font-style: normal;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+}
+.logomonobank{
+    /* color: #000; */
+    font-size: 48px;
+    font-style: normal;
+    font-family: "Inter",sans-serif;
+    font-weight: 900;
+}
+
+
+.main {
+    background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
+    height: 93.2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    position: relative;
+}
+.cardBox {
+    width: 709px;
+    height: 445px;
+    background-color: #fff;
+    border-radius: 42px;
+    background: url('../img/main/styleCard.png');
+    color: #fff;
+}
+.menuBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 1135px !important;
+    height: 370px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 31px 0 rgba(0,0,0,.65);
+}
+.button{
+    width: 513px;
+    height: 89px;
+    background-color: #D5D6DF;
+    font-size: 30px;
+    font-style: normal;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 24px;
+    text-align: start;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+}
+.button:hover{
+    background-color: #c9cace;
+}
+.menuBox button img{
+    margin-right: 38px;
+}
+
+.cardBox-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    margin-bottom: 57px;
+    margin-top: 19px;
+}
+
+.cardBox p{
+    color: #fff;
+    font-size: 38px;
+    font-style: normal;
+    font-family: "Inter",sans-serif;
+    font-weight: 400;
+}
+.cardBox-bottom p{
+    text-align: end;
+    font-size: 70px;
+    margin-right: 20px;
+}
+.cardBox .logomonobank{
+    color: #fff;
+}
+#numberCard{
+    margin: 0 10px;
+    margin-bottom: 190px;
+
+}
+
+
+.changesDataBox {
+    position: absolute;
+    background-color: #fff;
+    width: 250px;
+    height: 303px;
+    top: 0;
+    left: 13px;
+}
+.changesDataBox h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.changesDataBoxButton{
+    width: 205px;
+    height: 48px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+    border: 1px solid #000;
+    background-color: #D5D6DF;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #000;
+}
+.changesDataBoxButton a{
+    text-decoration: none;
+}
+.changesDataBoxImg{
+    display: block;
+    margin: 10px auto;
+}
+.backgroundBox{
+    display: flex;
+    justify-content: space-around;
+}
+.background {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+    cursor: pointer;
+}
+.white{
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(166,165,165,1) 100%);
+}
+.black{
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(116,111,111,1) 100%);
+}
+
+.changesIconBox{
+    width: 211px;
+    top: 72px;
+    left: 51px;
+    height: 158px;
+    position: absolute;
+    background-color: #fff;
+}
+.changesIconBox img{
+    cursor: pointer;
+}
+
+.cat {
+    position: absolute;
+    left: 1510px;
+    top: 490px;
+}
+.pizzaCat{
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    width: 700px;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+}
+.back {
+}
+.modal h1{
+    font-size: 48px;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+.limit{
+    color: #434242;
+    font-size: 32px;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.modal input{
+    width: 347px;
+    height: 51px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 20px;
+    background-color: #00000000;
+}
+.modal button{
+    width: 196px;
+    height: 54px;
+    border-radius: 15px;
+    font-size: 24px;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+}
+.modalContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30% 0;
+}
+
+
+
+.card{
+    padding: 10px;
+    
+    border-radius: 15px;
+}
+.modalchangeCardBox{
+    width: 1000px;
+    height: 400px;
+}
+.modalchangeCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    gap: 15px;
+    margin: 7% 0;
+
+}
+.card img{
+    width: 300px;
+    height: 200px;
+}
+.active{
+    border: 4px solid #000;
+}
+.back{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.none{
+    display: none;
+}
+.blackhon{
+    background-color: #404040;
+    color: #fff;
+}
+.blackhon input{
+    color: #fff;
+    border-color: #fff;
+}
+.blackhonbutton{
+    background-color: #5A585C;
+    color: #fff;
+}
+.blackhonbutton:hover{
+    background-color: #4e4c50;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+    <!-- <h1>main</h1>
+    <div class="boxInfo">
+        <h2>Info about card</h2>
+    </div>
+ 
+    <div class="depositeBox">
+        <input type="number" id="depositeInp" placeholder="100">
+        <button id="depositeBtn">Deposite</button>
+    </div>
+    <div class="withdrawBox">
+        <input type="number" id="withdrawInp" placeholder="100">
+        <button id="withdrawBtn">Deposite</button>
+    </div>
+ 
+    <div class="transferBox">    
+        <input type="number" id="transferInp" placeholder="100">
+        <input type="number" id="transferCardInp" placeholder="Card number">
+        <button id="transferBtn">Transfer</button>
+    </div>
+    <div class="setTransactionLimit">
+        <input type="number" id="setTransactionLimitInp" placeholder="100">
+        <button id="setTransactionLimitBtn">Set transaction limit</button>
+    </div> -->
+
+    <div class="wrapper">
+        <header class="backgroundBlock">
+            <div class="box_imgName">
+                <img src="../img/main/imgLogo1.png" alt="" class="headerLogoImg logoImg">
+                <h1 class="myName"></h1>
+            </div>
+            <h1 class="logomonobank">monobank</h1>
+        </header>
+        <main class="main">
+            <div class="changesDataBox none backgroundBlock">
+                <img src="../img/main/imgLogo1.png" alt="" class="changesDataBoxImg logoImg">
+                <h1 class="myName"></h1>
+                <button class="changesDataBoxButton"><a href="../account/account.html">Редагурати дані</a></button>
+                <div class="backgroundBox">
+                    <div class="background black"></div>
+                    <div class="background white"></div>
+                </div>
+            </div>
+
+            <div class="changesIconBox none">
+                <img src="../img/main/imgLogo1.png" alt="" data-logoImg="imgLogo1">
+                <img src="../img/main/imgLogo2.png" alt="" data-logoImg="imgLogo2">
+                <img src="../img/main/imgLogo3.png" alt="" data-logoImg="imgLogo3">
+                <img src="../img/main/imgLogo4.png" alt="" data-logoImg="imgLogo4">
+                <img src="../img/main/imgLogo5.png" alt="" data-logoImg="imgLogo5">
+                <img src="../img/main/imgLogo6.png" alt="" data-logoImg="imgLogo6">
+            </div>
+
+
+            <!-- <img src="../img/main/pizzaCat.png" alt="" class="pizzaCat">
+            <img src="../img/main/cat.png" alt="" class="cat"> -->
+
+
+            <div class="cardBox">
+                <div class="cardBox-top">
+                    <p class="logomonobank">monobank</p>
+                    <p><span class="money"></span>₴</p>
+                </div>
+                <p id="numberCard">2797 3421 5747 5391</p>
+                <div class="cardBox-bottom">
+                    <p>VISA</p>
+                </div>
+                
+            </div>
+            <div class="menuBox backgroundBlock">
+                <button class="button" id="deposite"><img src="../img/main/icons/deposite.png" alt="">Поповнення</button>
+                <button class="button" id="breeding"><img src="../img/main/icons/Breeding.png" alt="" >Виведення</button>
+                <button class="button"><img src="../img/main/icons/FundsTransfer.png" alt="">Трансфера коштів</button>
+                <button class="button" id="ChangeLimit"><img src="../img/main/icons/ChangeLimit.png" alt="">Зміна ліміту</button>
+                <button class="button"><img src="../img/main/icons/history.png" alt="">Історія</button>
+                <button class="button" id="changeCard">Поміняти картку</button>
+            </div>
+        </main>
+
+
+        <div id="myModel" class="modal none "> <!-- modalchangeCardBox -->
+            <p class="back">Назад</p>
+            <div class="modalContent"> <!-- modalchangeCard-->
+                <div class="card">
+                    <img src="../img/main/styleCard.png" alt="">
+                </div>
+                <div class="card">
+                    <img src="../img/main/styleCard.png" alt="">
+                </div>
+                <div class="card">
+                    <!-- <img src="../img/main/styleCard.png" alt=""> -->
+                </div>
+                <button>Підтвердити</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
