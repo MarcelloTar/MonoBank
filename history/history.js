@@ -1,47 +1,63 @@
-let objectHistory = JSON.parse(localStorage.getItem('historyCard'))
-
-
-let objectToMassif = Object.keys(objectHistory)
-console.log(objectToMassif.length, objectToMassif);
-
-if (objectToMassif.length >= 13) {
-    document.querySelector('.wrap').classList.add('bigwrap')
-}
-let massifs = Object.entries(objectHistory)
+let objectHistory = JSON.parse(localStorage.getItem('cards'))
+console.log(objectHistory);
 
 const boxInfoContent = document.querySelector('.boxInfoContent');
-// console.log(macivs);
+const select = document.querySelector('select');
+// console.log(objectHistory[0].historyLogs[0].credits);
+// console.log(Object.keys(objectHistory[0].historyLogs));
 
-massifs.forEach((massif) =>{
-    if (massif[1].operationType === 'Received credits') {
-        boxInfoContent.innerHTML += `
-         <div class="box">
-            <div class="boxImgText">
-                <img src="../img/history/plusImg.png" alt="">
-                <p class="money">+${massif[1].credits}</p>
-            </div>
-            <p class="text">Депозит</p>
-            <p class="date">${massif[1].operationTime}</p>
-         </div>`   
-    } else if(massif[1].operationType === 'Withdrawn of credits'){
-        boxInfoContent.innerHTML += `
-         <div class="box">
-            <div class="boxImgText">
-                <img src="../img/history/plusImg.png" alt="">
-                <p class="money">+${massif[1].credits}</p>
-            </div>
-            <p class="text">Знято</p>
-            <p class="date">${massif[1].operationTime}</p>
-         </div>`   
-    } else if(massif[1].operationType === 'Transaction limit changed'){
-        boxInfoContent.innerHTML += `
-         <div class="box">
-            <div class="boxImgText">
-                <img src="../img/history/plusImg.png" alt="">
-                <p class="money">+${massif[1].credits}</p>
-            </div>
-            <p class="text">Зміна ліміту</p>
-            <p class="date">${massif[1].operationTime}</p>
-         </div>`   
+
+// let objectToMassif = Object.keys(objectHistory[0].historyLogs)
+// console.log(objectToMassif); 
+
+// if (objectToMassif.length >= 13) {
+//     document.querySelector('.wrap').classList.add('bigwrap')
+//     document.querySelector('.boxInfoContent').classList.add('bigBox')
+// }
+// let massifs = Object.entries(objectHistory)
+
+// console.log(Object.entries(objectHistory));
+
+
+// // console.log(macivs);
+
+
+
+for (let i = 0; i < Object.keys(objectHistory[0].historyLogs).length; i++) {
+     operationTypeFun(0, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
+     operationTypeFun(0, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
+     operationTypeFun(0, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
+}
+
+
+select.addEventListener('change', () => {
+    let selectValue = select.value 
+    boxInfoContent.innerHTML = ''
+    for (let i = 0; i < Object.keys(objectHistory[selectValue].historyLogs).length; i++) {
+        operationTypeFun(selectValue, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
+        operationTypeFun(selectValue, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
+        operationTypeFun(selectValue, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
     }
 })
+
+
+function operationTypeFun(numberCard, i, text, img, title, sign, number = 1, text2 = '') {
+    if (objectHistory[numberCard].historyLogs[i].operationType === text) {
+         boxInfoContent.innerHTML += `
+          <div class="box">
+             <div class="boxImgText">
+                 ${img}
+                 <p class="money">${sign + objectHistory[numberCard].historyLogs[i].credits}</p>
+             </div>
+             <p class="text">${title}</p>
+             <p class="date">${objectHistory[numberCard].historyLogs[i].operationTime}</p>
+         </div>
+        `
+        return   
+    } /*else if (text2 === 'Withdrawn of credits' && number === 1) {
+        operationTypeFun(numberCard, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-', )
+    } else {
+        operationTypeFun(numberCard, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
+    }*/
+
+}

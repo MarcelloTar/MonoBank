@@ -1,1 +1,1 @@
-# MonoBank
+![foto page](/img/readme/monoBank.png)

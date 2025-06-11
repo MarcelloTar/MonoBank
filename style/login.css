@@ -79,3 +79,69 @@ body{
     width: 75px;
     height: 75px;
 }
+
+@media screen and (max-width: 1440px) {
+    .box{
+        width: 80%;
+        height: 75%;
+    }
+    .img{
+        top: 40%;
+        left: 65%;
+        width: 350px;
+        z-index: 1;
+    }
+    input, button{
+        position: sticky;
+        z-index: 2;
+    }
+}
+@media screen and (max-width: 1180px) {
+    .img{
+        top: 45%;
+        left: 62%;
+        /* width: 35%; */
+        width: 350px;
+    }
+}
+@media screen and (max-width: 1055px) {
+    .img{
+        top: 52%;
+        width: 310px;
+    }
+}
+@media screen and (max-width: 940px) {
+    .img{
+        top: 56%;
+        width: 290px;
+    }
+}
+@media screen and (max-width: 890px) {
+    .img{
+        display: none;
+    }
+}
+@media screen and (max-width: 630px) {
+    .box{
+        width: 90%;
+        height: 65%;
+    }
+}
+@media screen and (max-width: 490px) {
+    .input input{
+        width: 330px;
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .input input{
+        width: 280px;
+
+    }
+    #send{
+        width: 215px;
+    }
+    .box{
+        width: 95%;
+    }
+}

@@ -7,30 +7,6 @@
     <link rel="stylesheet" href="../style/main.css">
 </head>
 <body>
-    <!-- <h1>main</h1>
-    <div class="boxInfo">
-        <h2>Info about card</h2>
-    </div>
- 
-    <div class="depositeBox">
-        <input type="number" id="depositeInp" placeholder="100">
-        <button id="depositeBtn">Deposite</button>
-    </div>
-    <div class="withdrawBox">
-        <input type="number" id="withdrawInp" placeholder="100">
-        <button id="withdrawBtn">Deposite</button>
-    </div>
- 
-    <div class="transferBox">    
-        <input type="number" id="transferInp" placeholder="100">
-        <input type="number" id="transferCardInp" placeholder="Card number">
-        <button id="transferBtn">Transfer</button>
-    </div>
-    <div class="setTransactionLimit">
-        <input type="number" id="setTransactionLimitInp" placeholder="100">
-        <button id="setTransactionLimitBtn">Set transaction limit</button>
-    </div> -->
-
     <div class="wrapper">
         <header class="backgroundBlock">
             <div class="box_imgName">
@@ -69,36 +45,44 @@
                     <p class="logomonobank">monobank</p>
                     <p><span class="money"></span>₴</p>
                 </div>
-                <p id="numberCard">2797 3421 5747 5391</p>
+                <p id="numberCard"></p>
                 <div class="cardBox-bottom">
                     <p>VISA</p>
                 </div>
                 
             </div>
             <div class="menuBox backgroundBlock">
-                <button class="button" id="deposite"><img src="../img/main/icons/deposite.png" alt="">Поповнення</button>
-                <button class="button" id="breeding"><img src="../img/main/icons/Breeding.png" alt="" >Виведення</button>
-                <button class="button"><img src="../img/main/icons/FundsTransfer.png" alt="">Трансфера коштів</button>
-                <button class="button" id="ChangeLimit"><img src="../img/main/icons/ChangeLimit.png" alt="">Зміна ліміту</button>
-                <button class="button"><img src="../img/main/icons/history.png" alt="">Історія</button>
-                <button class="button" id="changeCard">Поміняти картку</button>
+                <button class="button" id="deposite"><img src="../img/main/icons/deposite.svg" alt="">Поповнення</button>
+                <button class="button" id="breeding"><img src="../img/main/icons/Breeding.svg" alt="" >Виведення</button>
+                <button class="button" id="fundsTransfer"><img src="../img/main/icons/FundsTransfer.svg" alt="">Трансфера коштів</button>
+                <button class="button" id="ChangeLimit"><img src="../img/main/icons/ChangeLimit.svg" alt="">Зміна ліміту</button>
+                <button class="button"><img src="../img/main/icons/history.svg" alt="">Історія</button>
+                <button class="button" id="changeCard"><img src="/img/main/icons/iconCard.png" alt="">Поміняти картку</button>
             </div>
         </main>
 
+        <div class="message">
+            <h1 class="messageText">Транзакція прийшла успішно</h1>
+        </div>
 
-        <div id="myModel" class="modal none "> <!-- modalchangeCardBox -->
+
+
+
+        <div id="myModel" class="modal none"> <!-- modalchangeCardBox -->
             <p class="back">Назад</p>
             <div class="modalContent"> <!-- modalchangeCard-->
-                <div class="card">
-                    <img src="../img/main/styleCard.png" alt="">
-                </div>
-                <div class="card">
-                    <img src="../img/main/styleCard.png" alt="">
-                </div>
-                <div class="card">
-                    <!-- <img src="../img/main/styleCard.png" alt=""> -->
-                </div>
-                <button>Підтвердити</button>
+               <div class="fundsTransferContent">
+                    <div class="fundsTransferContentLeft">
+                        <p class="whatCardText">card1</p>
+                        <input type="number" name="" id="">
+                    </div>
+                    <img src="/img/main/icons/Arrow 4.svg" alt="">
+                    <div class="fundsTransferContentRight">
+                        <select name="" id="selectCard">
+                        </select>
+                        <p></p>
+                    </div>
+               </div>
             </div>
         </div>
     </div>

@@ -292,8 +292,10 @@ header{
     width: 300px;
     height: 200px;
 }
-.active{
-    border: 4px solid #000;
+.activCard{
+    border: 4px solid #b90f94;
+    border-radius: 21px;
+    padding: 0;
 }
 .back{
     margin-top: 10px;
@@ -302,6 +304,65 @@ header{
     cursor: pointer;
 }
 
+
+
+.message{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    /* transform: translate(0, 10%); */
+    background-color: #fff;
+    width: 400px;
+    height: 100px;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-top: none;
+    transform: translateY(-100%);
+    
+}
+.messageText{
+    text-align: center;
+    /* font-size: 25px; */
+}
+
+
+.fundsTransferContent {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.fundsTransferContent img{
+    align-self: center;
+}
+.fundsTransferContentLeft {
+    input{
+        width: 100px;
+        height: 40px;
+        padding: 0 5px;
+        margin: 0;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    p{
+        font-size: 22px;
+    }
+}
+.fundsTransferContentRight {
+    p{
+       padding: 12px 30px;
+       border: 1px solid #000;
+       border-radius: 5px;
+    }
+    select{
+        border: none;
+        outline: none;
+        font-size: 20px;
+        font-weight: normal;
+    }
+}
 
 
 
@@ -333,4 +394,21 @@ header{
 }
 .blackhonbutton:hover{
     background-color: #4e4c50;
+}
+.animationMessageStart{
+    animation: message 1s both;
+}
+/* .animationMessageFinish{
+    animation-direction: reverse;
+    animation-fill-mode: none;
+} */
+
+
+@keyframes message{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }

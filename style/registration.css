@@ -46,14 +46,14 @@
     margin-bottom: 79px;
     position: relative;
 }
-/* #emailInp{
+#emailInp{
     width: 365px;
     height: 66px;
     padding-left: 35px;
     border-radius: 20px 0 0 20px;
     border: 1px solid #000;
-    font-size: 28px;
-} */
+    font-size: 20px;
+}
 .send{
     position: absolute;
     left: 376px;
@@ -226,4 +226,168 @@ input:focus {
 
 .confirm2:hover{
     background-color: #6c40db;
+}
+.message{
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    padding: 10px;
+    left: 45%;
+    transform: translateY(-100%);
+    border-radius: 0 0 10px 10px;
+}
+.emailText{
+
+}
+.pinkod{
+    font-size: 20px;
+}
+
+.animationMessageStart{
+    animation: message 2s both;
+}
+
+
+@media screen and (max-width: 1440px) {
+    .box{
+        width: 85%;
+        height: 80%;
+    }
+}
+@media screen and (max-width: 1320px) {
+    .box_left h1{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 1190px) {
+    .box_left h1{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1120px) {
+    #emailInp{
+        width: 300px;
+    }
+    .send{
+        left: 305px;
+    }
+    .stage_box{
+        gap: 114px;
+    }
+    .stage:first-child::after{
+        left: 68px;
+    }
+    .stage:nth-child(2)::after{
+        left: 243px;
+    }
+    .stage:nth-child(2)::before{
+        left: 127px;
+    }
+    .stage:last-child::before{
+        left: 300px;
+    }
+}
+@media screen and (max-width: 1040px) {
+    .wrapper{
+        height: 110vh;
+    }
+    .box{
+        flex-direction: column-reverse;
+        height: 90%;
+    }
+    .box_right{
+        width: 100%;
+        margin: 20px 0;
+    }
+    .box_left{
+        border: none;
+        border-top: 3px solid #D7D6D6;
+        width: 100%;
+    }
+    .box_left h1{
+        width: max-content;
+    }
+}
+@media screen and (max-width: 768px) {
+    .box_right img{
+        width: 290px;
+    }
+    
+}
+@media screen and (max-width: 640px) {
+    .wrapper{
+        height: 120vh;
+    }
+    .box_pasworld{
+        grid-template-columns: 342px;
+        grid-template-rows: repeat(4, 78px);
+    }
+}
+@media screen and (max-width: 515px) {
+    .wrapper{
+        height: 100vh;
+    }
+    .box{
+        height: 74%;
+    }
+    .box_right{
+        display: none;
+    }
+    .box_left{
+        border: none;
+    }
+    .stage_box{
+        gap: 65px;
+    }
+    .stage:nth-child(2)::after{
+        left: 199px;
+    }
+    .stage:nth-child(2)::before{
+        left: 74px;
+    }
+    .stage:last-child::before, .stage:first-child::after{
+        display: none;
+    }
+    .box_pasworld{
+        width: 100%;
+        grid-template-columns: 90%;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 320px) {
+    .box{
+        width: 95%;
+    }
+    .stage{
+        width: 45px;
+        height: 45px;
+    }
+    .stage:nth-child(2)::after{
+        left: 174px;
+    }
+    .stage:nth-child(2)::before{
+        left: 63px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes message{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
