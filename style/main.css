@@ -54,7 +54,8 @@ header{
     height: 445px;
     background-color: #fff;
     border-radius: 42px;
-    background: url('../img/main/styleCard.png');
+    background: url('../img/main/cards/styleCard.png') no-repeat;
+    background-size: cover;
     color: #fff;
 }
 .menuBox {
@@ -93,7 +94,7 @@ header{
 
 .cardBox-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 0 10px;
     margin-bottom: 57px;
     margin-top: 19px;
@@ -211,7 +212,7 @@ header{
 
 
 
-.modal{
+/* .modal{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -225,7 +226,7 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: column; */
-}
+/* } */
 .back {
 }
 .modal h1{
@@ -274,20 +275,7 @@ header{
     
     border-radius: 15px;
 }
-.modalchangeCardBox{
-    width: 1000px;
-    height: 400px;
-}
-.modalchangeCard{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-    /* justify-content: flex-start; */
-    gap: 15px;
-    margin: 7% 0;
 
-}
 .card img{
     width: 300px;
     height: 200px;
@@ -402,6 +390,195 @@ header{
     animation-direction: reverse;
     animation-fill-mode: none;
 } */
+
+
+
+
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1050;
+    display:none;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background-color:rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal__dialog{
+    /* max-width: 500px;
+    margin: 40px auto; */
+
+}
+.modalContent{
+    position:relative;
+    /* width:100%; */
+    width: 600px;
+    padding:150px 40px;
+
+    background-color:#fff;
+    /* border:1px solid rgba(0,0,0,.2); */
+    border-radius:10px;
+    /* max-height:80vh; */
+    height: 800px;
+    /* overflow-y:auto */
+}
+.modal__close{
+    position:absolute;
+    top:8px;
+    right:14px;
+    font-size:30px;
+    color:#000;
+    opacity:.5;
+    font-weight:700;
+    border:none;
+    background-color:transparent;
+    cursor:pointer;
+    transition: all 1s;
+}
+.modal__close:hover{
+    transform: rotate(180deg);
+}
+.modal__title{text-align:center;
+    font-size:22px;
+    text-transform:uppercase
+}
+.modal__input{
+    display:block;
+    margin:20px auto 20px auto;
+    width:280px;
+    height:50px;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    border:none;
+    font-size:18px;
+    text-align:center;
+    padding:0 20px;
+    outline:0
+}
+.modal .btn{
+    display:block;
+    width:280px;
+    margin:0 auto
+}
+.show{
+    display: flex
+}
+.hide{
+    display:none
+}
+.fade{
+    animation-name: fade;animation-duration: 1.5s;
+}
+@keyframes fade{from{opacity: 0.1;}to{opacity: 1;}}
+
+
+.modalchangeCardBox{
+    width: max-content;
+}
+.modalchangeCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    gap: 15px;
+
+}
+
+.changeStyleModalButton{
+    margin-bottom: 20px;
+    
+}
+.changeStyleModalButton img{cursor: pointer;}
+.changeStyleModalButton img:hover{
+    filter: invert(14%) sepia(19%) saturate(13%) hue-rotate(346deg) brightness(94%) contrast(83%);
+    /* color: #333333; */
+}
+.changeStyleModalButton img:not(:last-child){
+      margin-right: 20px;  
+}
+.boxstyleCard{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.boxstyleCardImg{
+    width: 106px;
+    height: 67px;
+    border-radius: 10px;
+}
+ 
+.cardImg{
+    width: 216px;
+    height: 136px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.boxstylelogo{
+    column-gap: 60px;
+}
+
+.modalLogoImg{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.background{
+    border-radius: 50px;
+}
+
+.boxstyleBackground{
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: repeat(3, max-content);
+
+}
+.lookBackground{
+    width: 250px;
+    height: 200px;
+    /* background-color: #000; */
+    background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
+    margin-bottom: 30px;
+}
+.background1{
+    background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
+}
+.background2{
+    background: linear-gradient(140deg,rgba(58, 219, 112, 1) 0%, rgba(76, 169, 129, 1) 100%);
+}
+.background3{
+    background: linear-gradient(140deg,rgba(216, 222, 34, 1) 0%, rgba(244, 152, 61, 1) 100%);
+}
+.background4{
+    background: linear-gradient(140deg,rgba(204, 204, 204, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgba(204, 204, 204, 1);
+}
+.background5{
+    background: linear-gradient(140deg,rgba(107, 107, 107, 1) 0%, rgba(103, 101, 101, 1) 100%);
+}
+.background6{
+    background: linear-gradient(140deg,rgba(0, 149, 255, 1) 0%, rgba(55, 213, 230, 1) 100%);
+}
+.background7{
+    background: linear-gradient(140deg,rgba(151, 215, 251, 1) 0%, rgba(166, 193, 223, 1) 100%);
+}
+.background8{
+    background: linear-gradient(140deg,rgba(133, 26, 56, 1) 0%, rgba(197, 94, 52, 1) 50%, rgba(112, 88, 90, 1) 100%);
+}
+.background9{
+    background: linear-gradient(140deg,rgba(137, 113, 149, 1) 0%, rgba(181, 167, 182, 1) 100%);
+}
+
+
+
 
 
 @keyframes message{

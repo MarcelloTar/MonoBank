@@ -72,3 +72,40 @@ input{
     text-decoration: none;
     color: #000;
 }
+
+
+@media screen and (max-width: 640px) {
+    .box{
+        width: 70%;
+        height: 75%;
+    }
+}
+@media screen and (max-width: 590px) {
+    .bigBoxInput{
+        width: 100%;
+    }
+    .smallBoxInput{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    input{
+        width: 80%;
+        height: 40px;
+        font-size: 16px;
+    }
+    #send{
+        width: 200px;
+        height: 45px;
+    }
+}
+@media screen and (max-width: 490px) {
+    .box{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 345px) {
+    input{
+        font-size: 14px;
+    }
+}

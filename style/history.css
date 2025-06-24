@@ -69,6 +69,55 @@ select{
     outline: none;
 }
 
+@media screen and (max-width: 1440px) {
+    .boxInfo {
+        width: 576px;
+    }
+}
+@media screen and (max-width: 655px) {
+    h1{
+        font-size: 40px;
+    }
+    .boxInfo {
+        width: 500px;
+    }
+    .date{
+        margin-right: 20px;
+    }
+}
+@media screen and (max-width: 530px) {
+    .boxInfo{
+        width: 450px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .boxInfo{
+        width: 95%;
+    }
+    .box{
+        width: 95%;
+    }
+    .filter{
+        margin-left: 3%;
+    }
+}
+@media screen and (max-width: 420px) {
+     .date{
+        margin-right: 25px;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 375px) {
+    h1{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .boxImgText{
+        gap: 7px;
+    }
+}
+
 
 
 
