@@ -1,4 +1,4 @@
-let objectHistory = JSON.parse(localStorage.getItem('cards'))
+let objectHistory = JSON.parse(localStorage.getItem('info'))
 console.log(objectHistory);
 
 const boxInfoContent = document.querySelector('.boxInfoContent');
@@ -23,7 +23,7 @@ const select = document.querySelector('select');
 
 
 
-for (let i = 0; i < Object.keys(objectHistory[0].historyLogs).length; i++) {
+for (let i = 0; i < Object.keys(objectHistory.cards[0].historyLogs).length; i++) {
      operationTypeFun(0, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
      operationTypeFun(0, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
      operationTypeFun(0, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
@@ -33,7 +33,7 @@ for (let i = 0; i < Object.keys(objectHistory[0].historyLogs).length; i++) {
 select.addEventListener('change', () => {
     let selectValue = select.value 
     boxInfoContent.innerHTML = ''
-    for (let i = 0; i < Object.keys(objectHistory[selectValue].historyLogs).length; i++) {
+    for (let i = 0; i < Object.keys(objectHistory.cards[selectValue].historyLogs).length; i++) {
         operationTypeFun(selectValue, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
         operationTypeFun(selectValue, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
         operationTypeFun(selectValue, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
@@ -42,15 +42,15 @@ select.addEventListener('change', () => {
 
 
 function operationTypeFun(numberCard, i, text, img, title, sign, number = 1, text2 = '') {
-    if (objectHistory[numberCard].historyLogs[i].operationType === text) {
+    if (objectHistory.cards[numberCard].historyLogs[i].operationType === text) {
          boxInfoContent.innerHTML += `
           <div class="box">
              <div class="boxImgText">
                  ${img}
-                 <p class="money">${sign + objectHistory[numberCard].historyLogs[i].credits}</p>
+                 <p class="money">${sign + objectHistory.cards[numberCard].historyLogs[i].credits}</p>
              </div>
              <p class="text">${title}</p>
-             <p class="date">${objectHistory[numberCard].historyLogs[i].operationTime}</p>
+             <p class="date">${objectHistory.cards[numberCard].historyLogs[i].operationTime}</p>
          </div>
         `
         return   

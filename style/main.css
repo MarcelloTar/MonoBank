@@ -227,8 +227,7 @@ header{
     align-items: center;
     flex-direction: column; */
 /* } */
-.back {
-}
+
 .modal h1{
     font-size: 48px;
     font-family: "Inter",sans-serif;
@@ -285,12 +284,7 @@ header{
     border-radius: 21px;
     padding: 0;
 }
-.back{
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
+
 
 
 
@@ -365,9 +359,7 @@ header{
 
 
 
-.none{
-    display: none;
-}
+
 .blackhon{
     background-color: #404040;
     color: #fff;
@@ -400,7 +392,7 @@ header{
     top:0;
     left:0;
     z-index:1050;
-    display:none;
+    display:flex;
     width:100%;
     height:100%;
     overflow:hidden;
@@ -464,12 +456,6 @@ header{
     width:280px;
     margin:0 auto
 }
-.show{
-    display: flex
-}
-.hide{
-    display:none
-}
 .fade{
     animation-name: fade;animation-duration: 1.5s;
 }
@@ -500,6 +486,9 @@ header{
 }
 .changeStyleModalButton img:not(:last-child){
       margin-right: 20px;  
+}
+.iconBackroundButton2{
+    width: 36px;
 }
 .boxstyleCard{
     display: flex;
@@ -577,9 +566,26 @@ header{
     background: linear-gradient(140deg,rgba(137, 113, 149, 1) 0%, rgba(181, 167, 182, 1) 100%);
 }
 
+.back{
+    cursor: pointer;
+    position: absolute;
+    font-size: 35px;
+    top: 3px;
+    left: 23px;
+    transition: transform 1s;
+    color: #000;
+}
+.back:hover{
+    transform: rotate(360deg);
+}
 
 
 
+
+
+.none{
+    display: none;
+}
 
 @keyframes message{
     0%{
