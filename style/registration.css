@@ -232,8 +232,9 @@ input:focus {
     background-color: #fff;
     top: 0;
     padding: 10px;
-    left: 45%;
-    transform: translateY(-100%);
+    left: 50%;
+    transform: translate(-50%, -100%);
+    /* transform: translateX(-50%) !important; */
     border-radius: 0 0 10px 10px;
 }
 .emailText{
@@ -290,6 +291,7 @@ input:focus {
 @media screen and (max-width: 1040px) {
     .wrapper{
         height: 110vh;
+        padding-top: 20px;
     }
     .box{
         flex-direction: column-reverse;
@@ -309,10 +311,19 @@ input:focus {
     }
 }
 @media screen and (max-width: 768px) {
+    .box_left h1{
+        font-size: 40px;
+    }
     .box_right img{
         width: 290px;
     }
     
+}
+@media screen and (max-width: 670px) {
+    .box_left h1{  
+        width: 77%;
+        text-align: center;
+    }
 }
 @media screen and (max-width: 640px) {
     .wrapper{
@@ -324,6 +335,27 @@ input:focus {
     }
 }
 @media screen and (max-width: 515px) {
+    #emailInp{
+        height: 50px;
+        width: 250px;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+    .box_inputEmail::after{
+        height: 48px;
+    }
+    .send{
+        left: 255px;
+        top: -14px;
+    }
+     .box_left h1{  
+        width: 90%;
+    }
+
+
+
+
+
     .wrapper{
         height: 100vh;
     }
@@ -354,7 +386,27 @@ input:focus {
         justify-content: center;
     }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
+        #emailInp{
+        height: 50px;
+        width: 200px;
+        padding-left: 10px;
+        font-size: 12px;
+    }
+    .box_inputEmail::after{
+        height: 48px;
+    }
+    .send{
+        left: 205px;
+    }
+     .box_left h1{ 
+        font-size: 35px; 
+    }
+
+
+
+
+
     .box{
         width: 95%;
     }
@@ -385,9 +437,9 @@ input:focus {
 
 @keyframes message{
     0%{
-        transform: translateY(-100%);
+        transform: translate(-50%, -100%);
     }
     100%{
-        transform: translateY(0);
+        transform: translate(-50%, 0);
     }
 }

@@ -291,7 +291,7 @@ header{
 .message{
     position: absolute;
     top: 0;
-    left: 40%;
+    left: 50%;
     /* transform: translate(0, 10%); */
     background-color: #fff;
     width: 400px;
@@ -303,7 +303,8 @@ header{
     border: 1px solid #000;
     border-top: none;
     transform: translateY(-100%);
-    
+    transform: translateX(-50%) !important;
+    z-index: 1060;
 }
 .messageText{
     text-align: center;
@@ -407,15 +408,16 @@ header{
 }
 .modalContent{
     position:relative;
-    /* width:100%; */
-    width: 600px;
+    /* width: 600px; */
+    width: 550px;
     padding:150px 40px;
 
     background-color:#fff;
     /* border:1px solid rgba(0,0,0,.2); */
     border-radius:10px;
-    /* max-height:80vh; */
-    height: 800px;
+    /* height: 800px; */
+    height: 650px;
+    /* height: max-content; */
     /* overflow-y:auto */
 }
 .modal__close{

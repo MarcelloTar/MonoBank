@@ -1,6 +1,3 @@
-
-
-
 const jsonSign = JSON.parse(localStorage.getItem('user'));
 let cardsJson = localStorage.getItem('info') ? JSON.parse(localStorage.getItem('info')) : null;
 const info = {
@@ -43,21 +40,12 @@ if (!!cardsJson == false) {
             if (j == 3 || j == 7 || j == 11) {
                 info.cards[i].numberCard.push(randomNumber + ' ')
             } else {
-                // number.push(randomNumber)
                 info.cards[i].numberCard.push(randomNumber)
             }   
         }
     }
 }
 console.log(info.cards);
-
-
-
-
-
-
-
-
 
 function UserCard(card){
  
@@ -81,15 +69,6 @@ function UserCard(card){
     }
     this.getTransactionLimit = () =>{
         return this._transactionLimit
-    }
-    
-    this.getCardOptions = () => {
-        return {
-            balance: this._balance,
-            transactionLimit: this._transactionLimit,
-            historyLogs: this._historyLogs,
-            key: this._key
-        }
     }
  
     this.putCredits = (amount) => {
@@ -226,69 +205,6 @@ document.querySelector('.main').classList.add(info.background)
 
 money.textContent = user.getBalance()
 
-
-
-
-//міняння аватара 
-// document.querySelectorAll('[data-logoImg]').forEach((logoImg) =>{
-//     logoImg.addEventListener('click', function () {
-//         let logoimage = logoImg.getAttribute('data-logoImg')
-//         document.querySelectorAll('.logoImg').forEach((logoImg) =>{
-//             logoImg.src = `../img/main/${logoimage}.png`;
-//         })
-//     })
-// })
-
-
-
-// changesDataBoxImg.addEventListener('click', () =>{
-//     document.querySelector('.changesIconBox').classList.toggle('none')
-// })
-
-// document.addEventListener('click', (e) => { 
-//     let clickInside = modal.contains(e.target) 
-//     let clickOnButton = button.contains(e.target) 
-//     if (!clickInside && !clickLogo){ 
-//         modal2.classList.add('none') 
-//     } 
-// })
-
-
-
-
-    // modalTrigger.forEach(btn => {
-    //     btn.addEventListener('click', openModal);
-    // });
-
-    function closeModal() {
-        modal.classList.add('none');
-        // modal.classList.remove('show');
-        // document.body.style.overflow = '';
-    }
-
-    function openModal() {
-        // modal.classList.add('show');
-        modal.classList.remove('none');
-        // document.body.style.overflow = 'hidden';
-    }
-    
-   
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && modal.classList.contains('show')) { 
-            closeModal();
-        }
-    });
-
-
-
-
 deposite.addEventListener('click', function(){
     let depositeText = ' <div class="modal__close" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="text" class="input"> <button class="buttonEvent">Підтвердити</button>'
     textModal(depositeText)
@@ -415,17 +331,10 @@ document.querySelector('#fundsTransfer').addEventListener('click', () => {
         
         money.textContent = user.getBalance()
         console.log(user.getBalance());
-        
+        let expiredСard = user.getCard()
         user = new UserCard(+selectCard)
         user.putCredits(moneyNumber)
-        // if (user.getCard() == 2) {
-        //    user = new UserCard(+selectCard)
-        // } else if(number == 1) {
-           
-        // } else {
-           
-        // }
-        // money.textContent = Math.floor(user.putCredits(moneyNumber)) 
+        user = new UserCard(expiredСard)
     })
 
 })
@@ -461,9 +370,9 @@ function whatCard(number) {
 
 function getMessage() {
     message.classList.add('animationMessageStart')
-    setTimeout(() => {
-        message.classList.remove('animationMessageStart')
-    }, 3000);
+    // setTimeout(() => {
+    //     message.classList.remove('animationMessageStart')
+    // }, 3000);
 }
 
 
@@ -497,7 +406,7 @@ imgName.addEventListener('click', () => {
 })
 
 
-function addEventListenerFun() {
+function addEventListenerFun(а) {
     document.querySelector('.iconCardButton').addEventListener('click', () => {      
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
@@ -740,3 +649,20 @@ function attrFunAndsaveFun(text, attr, text2) {
         // }   
     }, { once: false })
 }
+
+function closeModal() {
+    modal.classList.add('none');
+}
+function openModal() {
+    modal.classList.remove('none');
+}
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Escape" && modal.classList.contains('show')) { 
+        closeModal();
+    }
+});
