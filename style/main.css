@@ -754,8 +754,67 @@ header{
     .modalMoneyText{
         font-size: 35px;
     }
+    .menuBox button img{
+        margin-right: 20px;
+    }
 }
 
+
+@media screen and (max-width: 425px) {
+    .logomonobank{
+        display: none;
+    }
+    /* .box_imgName{
+        width: 100%;
+        justify-content: space-between;
+    } */
+    /* .backgroundBlock{
+        justify-content: flex-end;
+    } */
+    .menuBox{
+    width: 315px;
+    }
+    .button{
+        width: 280px;
+        font-size: 16px;
+    }
+    .modalMoneyText{
+        transform: translateY(55px);
+    }
+    header{
+       height: 50px; 
+    }
+    .headerLogoImg{
+        height: 40px;
+        width: 40px;
+    }
+    .cardBox{
+        transform: rotateX(51deg);
+        width: 315px;
+        height: 205px;
+    }
+    .visa{
+        font-size: 30px;
+    }
+    #numberCard{
+        font-size: 18px;
+    }
+    .main{
+        height: 94vh;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .menuBox{
+        width: 300px;
+    }
+    .button{
+        height: 45px;
+    }
+    .cardBox{
+        width: 300px;
+    }
+}
 
 .none{
     display: none;
