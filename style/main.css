@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    overflow: hidden;
+}
 .wrapper {
     height: 100vh;
 }
@@ -41,14 +43,24 @@ header{
 
 .main {
     background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
-    height: 93.2%;
+    height: 92.9%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 20px;
     position: relative;
 }
+
+
+
+.BoxModal{
+    display: none;
+}
+
+
+
+
 .cardBox {
     width: 709px;
     height: 445px;
@@ -63,7 +75,7 @@ header{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    width: 1135px !important;
+    width: 1135px;
     height: 370px;
     background-color: #fff;
     border-radius: 30px;
@@ -99,16 +111,28 @@ header{
     margin-bottom: 57px;
     margin-top: 19px;
 }
-
+.cardBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .cardBox p{
     color: #fff;
-    font-size: 38px;
+    
+    
+}
+.moneyText, #numberCard{
     font-style: normal;
     font-family: "Inter",sans-serif;
     font-weight: 400;
+    font-size: 38px;
 }
-.cardBox-bottom p{
-    text-align: end;
+.cardBox-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.visa{
     font-size: 70px;
     margin-right: 20px;
 }
@@ -117,7 +141,7 @@ header{
 }
 #numberCard{
     margin: 0 10px;
-    margin-bottom: 190px;
+    /* margin-bottom: 190px; */
 
 }
 
@@ -302,8 +326,7 @@ header{
     align-items: center;
     border: 1px solid #000;
     border-top: none;
-    transform: translateY(-100%);
-    transform: translateX(-50%) !important;
+    transform: translate(-50%, -100%);
     z-index: 1060;
 }
 .messageText{
@@ -584,6 +607,155 @@ header{
 
 
 
+@media screen and (max-width: 1440px) {
+    body{
+        overflow: auto;
+    }
+    .main{
+        height: 100%;
+        padding-bottom: 20px;
+    }
+    .cardBox{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .menuBox{
+        width: 1000px;
+    }
+    .button{
+        width: 455px;
+    }
+    .visa{
+        font-size: 60px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .wrapper{
+        height: max-content;
+    }
+    .main{
+        padding-bottom: 30px;
+    }
+    .menuBox{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 20px;
+        height: max-content;
+        padding: 20px 0;
+        width: 730px;
+    }
+    .button{
+        width: 660px;
+        height: 70px;
+        font-size: 25px;
+        /* justify-content:  flex-start; */
+    }
+    .button img{
+        height: 40px;
+    }
+    .cardBox{
+        width: 600px;
+        height: 350px;
+    }
+    #numberCard{
+        font-size: 30px;
+    }
+    .visa{
+        font-size: 50px;
+    }
+    .logomonobank{
+        font-size: 35px;
+    }
+    .myName{
+        font-size: 25px;
+    }
+    .moneyText{
+        font-size: 30px;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .BoxModal{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .cardBoxModal{
+        perspective: 2000px;
+        transform-style: preserve-3d;
+    }
+    .cardBox{
+        transform: rotateX(60deg);
+        /* box-shadow: 2px 39px 29px -5px rgba(66,66,66,0.49); */
+        /* box-shadow: 2px 39px 26px 16px rgba(66,66,66,0.87); */
+        /* box-shadow: 
+            0px 38px 0px -14px rgba(74,43,12,0.87),
+            0px 50px 0px -14px rgba(82,52,31,0.87); */
+
+
+            /* 0px 38px 0px -14px rgba(59, 90, 71, 0.87),
+            0px 38px 0px -14px rgba(59, 90, 71, 0.87),
+            2px 39px 21px 2px rgba(66,66,66,0.87); */
+        width: 500px;
+        height: 300px;
+        /* position: fixed; */
+        /* z-index: 1000; */
+    }
+    .modalMoneyText{
+        transform: translateY(70px);
+        font-size: 45px;
+    }
+    .menuBox{
+        width: 625px;
+    }
+    .button{
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 655px) {
+    .button{
+        width: 420px;
+        height: 55px;
+        border-radius: 20px;
+    }
+    .menuBox{
+        width: 480px;
+    }
+    .cardBox{
+        width: 442px;
+        height: 290px;
+    }
+    .visa{
+        font-size: 40px;
+    }
+    #numberCard{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .menuBox{
+        width: 380px;
+    }
+    .button{
+        width: 330px;
+        height: 48px;
+        font-size: 20px;
+    }
+    .cardBox{
+        width: 358px;
+        height: 230px;
+    }
+    .modalMoneyText{
+        font-size: 35px;
+    }
+}
+
 
 .none{
     display: none;
@@ -591,9 +763,9 @@ header{
 
 @keyframes message{
     0%{
-        transform: translateY(-100%);
+        transform: translate(-50%, -100%);
     }
     100%{
-        transform: translateY(0);
+        transform: translate(-50%, 0);
     }
 }
