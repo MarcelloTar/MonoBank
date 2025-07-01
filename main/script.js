@@ -190,8 +190,8 @@ const myName = document.querySelectorAll('.myName');
 const logoImg = document.querySelectorAll('.logoImg')
 
 myName[0].textContent = jsonSign.name
-logoImg[0].src = `/img/main/logo/${info.logo}.png`
-document.querySelector('.cardBox').style.background = `url('/img/main/cards/${info.cards[0].styleCard}.png') no-repeat`
+logoImg[0].src = `../img/main/logo/${info.logo}.png`
+document.querySelector('.cardBox').style.background = `url('../img/main/cards/${info.cards[0].styleCard}.png') no-repeat`
 document.querySelector('.cardBox').style.backgroundSize = `cover`
 
 const numberCard = document.querySelector('#numberCard');
