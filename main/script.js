@@ -411,23 +411,23 @@ function addEventListenerFun(а) {
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
             <div class="back" data-back>&larr;</div>
-            <img src="/img/main/cards/styleCard.png" alt="" class="cardImg"> 
+            <img src="../img/main/cards/styleCard.png" alt="" class="cardImg"> 
             <div class="changeStyleModalButton">
-                <img src="/img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="/img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="/img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="/img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
             <div class="boxstyleCard">
-                <img src="/img/main/cards/styleCard.png" alt="" data-cards="styleCard" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard1.png" alt="" data-cards="styleCard1" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard2.png" alt="" data-cards="styleCard2" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard3.png" alt="" data-cards="styleCard3" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard4.png" alt="" data-cards="styleCard4" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard5.png" alt="" data-cards="styleCard5" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard6.png" alt="" data-cards="styleCard6" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard7.png" alt="" data-cards="styleCard7" class="boxstyleCardImg">
-                <img src="/img/main/cards/styleCard8.png" alt="" data-cards="styleCard8" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard.png" alt="" data-cards="styleCard" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard1.png" alt="" data-cards="styleCard1" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard2.png" alt="" data-cards="styleCard2" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard3.png" alt="" data-cards="styleCard3" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard4.png" alt="" data-cards="styleCard4" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard5.png" alt="" data-cards="styleCard5" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard6.png" alt="" data-cards="styleCard6" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard7.png" alt="" data-cards="styleCard7" class="boxstyleCardImg">
+                <img src="../img/main/cards/styleCard8.png" alt="" data-cards="styleCard8" class="boxstyleCardImg">
             </div>
             <button class="save">Зберегти</button>
         `
@@ -451,23 +451,23 @@ function addEventListenerFun(а) {
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
             <div class="back" data-back>&larr;</div>
-            <img src="/img/main/logo/imgLogo1.png" alt="" class="modalLogoImg"> 
+            <img src="../img/main/logo/imgLogo1.png" alt="" class="modalLogoImg"> 
             <div class="changeStyleModalButton">
-                <img src="/img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="/img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="/img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="/img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
             <div class="boxstylelogo">
-                <img src="/img/main/logo/imgLogo1.png" alt="" data-logoImg="imgLogo1" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo2.png" alt="" data-logoImg="imgLogo2" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo3.png" alt="" data-logoImg="imgLogo3" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo4.png" alt="" data-logoImg="imgLogo4" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo5.png" alt="" data-logoImg="imgLogo5" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo6" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo7" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo8" class="boxStyleLogoImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo9" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo1.png" alt="" data-logoImg="imgLogo1" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo2.png" alt="" data-logoImg="imgLogo2" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo3.png" alt="" data-logoImg="imgLogo3" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo4.png" alt="" data-logoImg="imgLogo4" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo5.png" alt="" data-logoImg="imgLogo5" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo6" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo7" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo8" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo9" class="boxStyleLogoImg">
             </div>
             <button class="save">Зберегти</button>
         `
@@ -491,10 +491,10 @@ function addEventListenerFun(а) {
             <div class="back" data-back>&larr;</div>
             <div class="lookBackground"></div>
             <div class="changeStyleModalButton">
-                <img src="/img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="/img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="/img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="/img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
             <div class="boxstyleBackground">
                 <div class="background1 background" data-background="background1"></div>
@@ -547,10 +547,10 @@ function addEventListenerFun(а) {
         modalContent.innerHTML = `
             <div class="back" data-back>&larr;</div>
             <div class="changeStyleModalButton">
-                <img src="/img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="/img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="/img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="/img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
             <div class="boxstyleCard boxstylelogo">
                 <div class="background black"></div>
