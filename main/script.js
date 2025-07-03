@@ -370,9 +370,9 @@ function whatCard(number) {
 
 function getMessage() {
     message.classList.add('animationMessageStart')
-    // setTimeout(() => {
-    //     message.classList.remove('animationMessageStart')
-    // }, 3000);
+    setTimeout(() => {
+        message.classList.remove('animationMessageStart')
+    }, 3000);
 }
 
 
@@ -458,16 +458,16 @@ function addEventListenerFun(а) {
                 <img src="/img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
                 <img src="/img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
-            <div class="boxstyleCard boxstylelogo">
-                <img src="/img/main/logo/imgLogo1.png" alt="" data-logoImg="imgLogo1" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo2.png" alt="" data-logoImg="imgLogo2" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo3.png" alt="" data-logoImg="imgLogo3" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo4.png" alt="" data-logoImg="imgLogo4" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo5.png" alt="" data-logoImg="imgLogo5" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo6" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo7" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo8" class="boxstyleCardImg">
-                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo9" class="boxstyleCardImg">
+            <div class="boxstylelogo">
+                <img src="/img/main/logo/imgLogo1.png" alt="" data-logoImg="imgLogo1" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo2.png" alt="" data-logoImg="imgLogo2" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo3.png" alt="" data-logoImg="imgLogo3" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo4.png" alt="" data-logoImg="imgLogo4" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo5.png" alt="" data-logoImg="imgLogo5" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo6" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo7" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo8" class="boxStyleLogoImg">
+                <img src="/img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo9" class="boxStyleLogoImg">
             </div>
             <button class="save">Зберегти</button>
         `
@@ -496,7 +496,7 @@ function addEventListenerFun(а) {
                 <img src="/img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
                 <img src="/img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
-            <div class="boxstyleCard boxstyleBackground">
+            <div class="boxstyleBackground">
                 <div class="background1 background" data-background="background1"></div>
                 <div class="background2 background" data-background="background2"></div>
                 <div class="background3 background" data-background="background3"></div>

@@ -433,7 +433,7 @@ header{
     position:relative;
     /* width: 600px; */
     width: 550px;
-    padding:150px 40px;
+    /* padding:150px 40px; */
 
     background-color:#fff;
     /* border:1px solid rgba(0,0,0,.2); */
@@ -516,8 +516,9 @@ header{
     width: 36px;
 }
 .boxstyleCard{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: repeat(3, max-content);
     gap: 45px;
     justify-content: center;
     margin-bottom: 20px;
@@ -536,7 +537,10 @@ header{
 }
 
 .boxstylelogo{
-    column-gap: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: repeat(3, max-content);
+    gap: 45px;
 }
 
 .modalLogoImg{
@@ -548,16 +552,19 @@ header{
 .background{
     border-radius: 50px;
 }
-
+.boxStyleLogoImg{
+    width: 60px;
+    height: 60px;
+}
 .boxstyleBackground{
     display: grid;
     grid-template-columns: repeat(3, max-content);
     grid-template-rows: repeat(3, max-content);
-
+    gap: 35px;
 }
 .lookBackground{
     width: 250px;
-    height: 200px;
+    height: 100px;
     /* background-color: #000; */
     background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
     margin-bottom: 30px;
@@ -617,6 +624,10 @@ header{
     }
     .cardBox{
         margin-top: 20px;
+    }
+    .message{
+        height: 80px;
+        font-size: 30px;
     }
 }
 
@@ -715,6 +726,23 @@ header{
     .button{
         width: 550px;
     }
+    .modalContent{
+        width: 475px;
+    }
+
+    .modal h1{
+        font-size: 30px;
+    }
+    .modal input{
+        width: 270px;
+        height: 40px;
+
+    }
+    .modal button{
+        width: 175px;
+        height: 38px;
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 655px) {
@@ -735,6 +763,10 @@ header{
     }
     #numberCard{
         font-size: 20px;
+    }
+    .modalContent{
+        /* height: 555px; */
+        width: 430px;
     }
 }
 
@@ -759,6 +791,15 @@ header{
     }
 }
 
+
+@media screen and (max-width: 450px) {
+    .modalContent{
+        width: 405px;
+    }
+    .boxstyleCard{
+        gap: 20px;
+    }
+}
 
 @media screen and (max-width: 425px) {
     .logomonobank{
@@ -802,7 +843,17 @@ header{
     .main{
         height: 94vh;
     }
+    .boxstyleCard{
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows: repeat(5, max-content);
+    }
+    .modalContent{
+        height: max-content;
+        padding: 20px 0;
+        width: 360px;
+    }
 }
+
 
 @media screen and (max-width: 340px) {
     .menuBox{
