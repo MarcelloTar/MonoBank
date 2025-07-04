@@ -610,7 +610,10 @@ header{
 .back:hover{
     transform: rotate(360deg);
 }
-
+.boxstyleBackground2{
+    display: flex;
+    gap: 50px;
+}
 
 
 
@@ -851,6 +854,23 @@ header{
         height: max-content;
         padding: 20px 0;
         width: 360px;
+    }
+    .back{
+        top: 0px;
+        left: 15px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .modalContent{
+        width: 330px;
+    }
+    .lookBackground{
+        width: 150px;
+    }
+    .cardImg{
+        width: 180px;
+        height: 110px;
     }
 }
 

@@ -378,6 +378,7 @@ function getMessage() {
 
 function textModal(text) {
     modal.classList.remove('none');
+    document.body.style.overflow = 'hidden'
     modalContent.innerHTML = ''
     modalContent.innerHTML = text
     const modalCloseBtn = document.querySelector('[data-close]');
@@ -552,7 +553,7 @@ function addEventListenerFun(а) {
                 <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
                 <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
             </div>
-            <div class="boxstyleCard boxstylelogo">
+            <div class="boxstyleBackground2">
                 <div class="background black"></div>
                 <div class="background white"></div>
             </div>
@@ -652,6 +653,7 @@ function attrFunAndsaveFun(text, attr, text2) {
 
 function closeModal() {
     modal.classList.add('none');
+    document.body.style.overflow = ''
 }
 function openModal() {
     modal.classList.remove('none');
