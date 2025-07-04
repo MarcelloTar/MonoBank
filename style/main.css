@@ -541,6 +541,7 @@ header{
     grid-template-columns: repeat(3, max-content);
     grid-template-rows: repeat(3, max-content);
     gap: 45px;
+    margin-bottom: 20px;
 }
 
 .modalLogoImg{
@@ -561,6 +562,7 @@ header{
     grid-template-columns: repeat(3, max-content);
     grid-template-rows: repeat(3, max-content);
     gap: 35px;
+    margin-bottom: 20px;
 }
 .lookBackground{
     width: 250px;
@@ -688,7 +690,17 @@ header{
     .moneyText{
         font-size: 30px;
     }
-    
+    .card img{
+        width: 240px;
+        height: 165px;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .card img {
+        width: 200px;
+        height: 135px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -745,6 +757,10 @@ header{
         width: 175px;
         height: 38px;
         font-size: 20px;
+    }
+    .card img {
+        width: 235px;
+        height: 140px;
     }
 }
 
@@ -872,9 +888,23 @@ header{
         width: 180px;
         height: 110px;
     }
+    .modal h1{
+        font-size: 25px;
+    }
+    .modal__close{
+        top: 0px;
+        right: 4px;
+    }
 }
 
-
+@media screen and (max-width: 350px) {
+    .modalContent{
+        width: 300px;
+    }
+    .limit{
+        text-align: center;
+    }
+}
 @media screen and (max-width: 340px) {
     .menuBox{
         width: 300px;
