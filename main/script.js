@@ -295,7 +295,7 @@ changeCard.addEventListener('click', () => {
 
 })
 
-
+                    // <img src="/img/main/icons/Arrow 4.svg" alt="">
 
 document.querySelector('#fundsTransfer').addEventListener('click', () => {
     textModal(`
@@ -305,7 +305,7 @@ document.querySelector('#fundsTransfer').addEventListener('click', () => {
                         <p class="whatCardText">card1</p>
                         <input type="number" name="" id="inputNumber">
                     </div>
-                    <img src="/img/main/icons/Arrow 4.svg" alt="">
+
                     <div class="fundsTransferContentRight">
                         <select name="" id="selectCard">
                         </select>
@@ -407,7 +407,7 @@ imgName.addEventListener('click', () => {
 })
 
 
-function addEventListenerFun(а) {
+function addEventListenerFun() {
     document.querySelector('.iconCardButton').addEventListener('click', () => {      
         modalContent.innerHTML = ''
         modalContent.innerHTML = `

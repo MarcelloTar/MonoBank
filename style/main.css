@@ -339,6 +339,12 @@ header{
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
+    margin-bottom: 20px;
+}
+.fundsTransferContentLeft::after{
+    content: "\2192";
+    font-size: 31px;
+    padding: 0 10px;
 }
 .fundsTransferContent img{
     align-self: center;
@@ -357,8 +363,9 @@ header{
     }
 }
 .fundsTransferContentRight {
+    align-self: flex-end;
     p{
-       padding: 12px 30px;
+       padding: 10px 30px;
        border: 1px solid #000;
        border-radius: 5px;
     }
@@ -701,6 +708,10 @@ header{
         width: 200px;
         height: 135px;
     }
+    .modal button{
+        font-size: 22px;
+        height: 35px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -761,6 +772,9 @@ header{
     .card img {
         width: 235px;
         height: 140px;
+    }
+    #inputNumber{
+        width: 100px;
     }
 }
 
