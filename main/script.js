@@ -177,7 +177,6 @@ const imgName = document.querySelector('.box_imgName');
 const backgroundBlocks = document.querySelectorAll('.backgroundBlock');
 
 const buttons = document.querySelectorAll('button');
-const changesDataBoxImg = document.querySelector('.changesDataBoxImg');
 const message = document.querySelector('.message');
 const money = document.querySelector('.money');
 const modal = document.querySelector('.modal');
@@ -206,7 +205,7 @@ document.querySelector('.main').classList.add(info.background)
 money.textContent = user.getBalance()
 
 deposite.addEventListener('click', function(){
-    let depositeText = ' <div class="modal__close" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="text" class="input"> <button class="buttonEvent">Підтвердити</button>'
+    let depositeText = ` <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(depositeText)
     modalContent.classList.remove('modalchangeCardBox')
 
@@ -219,7 +218,7 @@ deposite.addEventListener('click', function(){
 })
 
 breeding.addEventListener('click', function () {
-    let breedingText =  `<div class="modal__close" data-close>&times;</div> <h1>Вивести</h1> <p class="limit">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent">Підтвердити</button>`
+    let breedingText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(breedingText)
     modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
@@ -233,7 +232,7 @@ breeding.addEventListener('click', function () {
 })
 
 changeLimit.addEventListener('click', function () {
-    let changeLimitText =  `<div class="modal__close" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent">Підтвердити</button>`
+    let changeLimitText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(changeLimitText)
     modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
@@ -255,8 +254,8 @@ changeCard.addEventListener('click', () => {
             <img src="../img/main/cards/${info.cards[2].styleCard}.png" alt="">
         </div>
     </div>
-    <div class="modal__close" data-close>&times;</div>   
-    <button class="buttonEvent">Підтвердити</button>
+    <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>   
+    <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>
     `
     let cardNum
     modalContent.classList.add('modalchangeCardBox')
@@ -295,11 +294,10 @@ changeCard.addEventListener('click', () => {
 
 })
 
-                    // <img src="/img/main/icons/Arrow 4.svg" alt="">
 
 document.querySelector('#fundsTransfer').addEventListener('click', () => {
     textModal(`
-        <div class="modal__close" data-close>&times;</div>
+        <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
         <div class="fundsTransferContent">
                     <div class="fundsTransferContentLeft">
                         <p class="whatCardText">card1</p>
@@ -312,7 +310,7 @@ document.querySelector('#fundsTransfer').addEventListener('click', () => {
                         <p class='NumberText'>0</p>
                     </div>
             </div>
-            <button class="buttonEvent">Підтвердити</button>`)
+            <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`)
     whatCard(2)
     
     const inputNumber = document.querySelector('#inputNumber');
@@ -394,9 +392,21 @@ function whiteOrBlack(methodClass) {
     buttons.forEach((button) =>{
         button.classList[methodClass]('blackhonbutton')
     })
-    // document.querySelector('.changesDataBoxButton').classList[methodClass]('blackhonbutton')
-    modal.classList[methodClass]('blackhon')
-    // document.querySelector('.changesDataBoxButton').classList[methodClass]('blackhonbutton')
+    modalContent.classList[methodClass]('blackhon')
+    document.querySelectorAll('.buttonModal').forEach(button => {
+        button.classList[methodClass]('blackhonbutton')
+        
+    })
+    const iconButtons = document.querySelectorAll('.iconButton');
+    if(iconButtons) {
+        iconButtons.forEach(iconButton => {
+            iconButton.classList[methodClass]('filterImgBlack')
+        })
+    }
+    const back = document.querySelector('.back');
+    if (back) {
+        back.classList[methodClass]('whiteColor')
+    }
 }
 
 let attrCard
@@ -411,13 +421,13 @@ function addEventListenerFun() {
     document.querySelector('.iconCardButton').addEventListener('click', () => {      
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
-            <div class="back" data-back>&larr;</div>
+            <div class="back ${info.topic === 'dark' ? 'whiteColor' : ''}" data-back>&larr;</div>
             <img src="../img/main/cards/styleCard.png" alt="" class="cardImg"> 
             <div class="changeStyleModalButton">
-                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2 ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
             </div>
             <div class="boxstyleCard">
                 <img src="../img/main/cards/styleCard.png" alt="" data-cards="styleCard" class="boxstyleCardImg">
@@ -430,7 +440,7 @@ function addEventListenerFun() {
                 <img src="../img/main/cards/styleCard7.png" alt="" data-cards="styleCard7" class="boxstyleCardImg">
                 <img src="../img/main/cards/styleCard8.png" alt="" data-cards="styleCard8" class="boxstyleCardImg">
             </div>
-            <button class="save">Зберегти</button>
+            <button class="save ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Зберегти</button>
         `
         attrFunAndsaveFun((item) => {
                     attrCard = item.getAttribute('data-cards');
@@ -451,13 +461,13 @@ function addEventListenerFun() {
     document.querySelector('.iconLogoButton').addEventListener('click', () => {
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
-            <div class="back" data-back>&larr;</div>
+            <div class="back ${info.topic === 'dark' ? 'whiteColor' : ''}" data-back>&larr;</div>
             <img src="../img/main/logo/imgLogo1.png" alt="" class="modalLogoImg"> 
             <div class="changeStyleModalButton">
-                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2 ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
             </div>
             <div class="boxstylelogo">
                 <img src="../img/main/logo/imgLogo1.png" alt="" data-logoImg="imgLogo1" class="boxStyleLogoImg">
@@ -470,7 +480,7 @@ function addEventListenerFun() {
                 <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo8" class="boxStyleLogoImg">
                 <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo9" class="boxStyleLogoImg">
             </div>
-            <button class="save">Зберегти</button>
+            <button class="save ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Зберегти</button>
         `
             attrFunAndsaveFun((item) => {
                     attrlogo = item.getAttribute('data-logoImg'); 
@@ -489,13 +499,13 @@ function addEventListenerFun() {
     document.querySelector('.iconBackroundButton').addEventListener('click', () => {
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
-            <div class="back" data-back>&larr;</div>
+            <div class="back ${info.topic === 'dark' ? 'whiteColor' : ''}" data-back>&larr;</div>
             <div class="lookBackground"></div>
             <div class="changeStyleModalButton">
-                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2 ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
             </div>
             <div class="boxstyleBackground">
                 <div class="background1 background" data-background="background1"></div>
@@ -508,7 +518,7 @@ function addEventListenerFun() {
                 <div class="background8 background" data-background="background8"></div>
                 <div class="background9 background" data-background="background9"></div>
             </div>
-            <button class="save">Зберегти</button>
+            <button class="save ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Зберегти</button>
         `
         attrFunAndsaveFun((item) => {
                 attrBackground = item.getAttribute('data-background')
@@ -546,12 +556,12 @@ function addEventListenerFun() {
     document.querySelector('.iconBackroundButton2').addEventListener('click', () => {
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
-            <div class="back" data-back>&larr;</div>
+            <div class="back ${info.topic === 'dark' ? 'whiteColor' : ''}" data-back>&larr;</div>
             <div class="changeStyleModalButton">
-                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton iconButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton iconButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton iconButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2 iconButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
             </div>
             <div class="boxstyleBackground2">
                 <div class="background black"></div>
@@ -588,24 +598,24 @@ function back() {
 
 function styleFun() {
      textModal( `
-                <div class="modal__close" data-close>&times;</div>
+                <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
                 <img src="../img/main/logo/${info.logo}.png" alt="" class="changesDataBoxImg logoImg">
                 <h1 class="myName">${jsonSign.name}</h1>
-                <button class="changesDataBoxButton"><a href="../account/account.html">Змінити дані</a></button>
-                <button class="changeStyle">Змінити стилі</button>
+                <button class="changesDataBoxButton ${info.topic === 'dark' ? 'blackhonbutton' : ''}"><a href="../account/account.html" class="${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити дані</a></button>
+                <button class="changeStyle ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити стилі</button>
     `)
           
     const changeStyle = document.querySelector('.changeStyle');
     changeStyle.addEventListener('click', () => {
         modalContent.innerHTML = ''
         modalContent.innerHTML = `
-            <div class="back" data-back>&larr;</div>
+            <div class="back ${info.topic === 'dark' ? 'whiteColor' : ''}" data-back>&larr;</div>
             <img src="../img/main/cards/styleCard.png" alt="" class="cardImg"> 
             <div class="changeStyleModalButton">
-                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton">
-                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton">
-                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton">
-                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2">
+                <img src="../img/main/icons/iconCardButton.svg" alt="" class="iconCardButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconLogoButton.svg" alt="" class="iconLogoButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton.svg" alt="" class="iconBackroundButton ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
+                <img src="../img/main/icons/iconBackroundButton2.svg" alt="" class="iconBackroundButton2 ${info.topic === 'dark' ? 'filterImgBlack' : ''}">
             </div>
             <div class="boxstyleCard">
                 <img src="../img/main/cards/styleCard.png" alt="" data-cards="styleCard" class="boxstyleCardImg">
@@ -618,7 +628,7 @@ function styleFun() {
                 <img src="../img/main/cards/styleCard7.png" alt="" data-cards="styleCard7" class="boxstyleCardImg">
                 <img src="../img/main/cards/styleCard8.png" alt="" data-cards="styleCard8" class="boxstyleCardImg">
             </div>
-            <button class="save">Зберегти</button>
+            <button class="save ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Зберегти</button>
         `
         attrFunAndsaveFun((item) => {
                 attrCard = item.getAttribute('data-cards');

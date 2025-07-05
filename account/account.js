@@ -1,9 +1,9 @@
-
+const info = JSON.parse(localStorage.getItem('info'))
 const send = document.querySelector('#send');
-const bigBoxInput = document.querySelector('.bigBoxInput');
-
+const bigBoxInput = document.querySelector('.bigBoxInput'); 
 const userlocal = localStorage.getItem('user')
 const jsonSign = JSON.parse(userlocal)
+console.log(info);
 function input() {
     bigBoxInput.innerHTML = `
     <div class="smallBoxInput">
@@ -26,6 +26,15 @@ function input() {
 }
 input()
 
+document.querySelector('.wrapper').classList.add(info.background)
+send.classList.add(info.background)
+if (info.topic === 'dark') {
+    document.querySelector('.box').classList.add('blackhon')
+    document.querySelectorAll('input').forEach(item => {
+        item.classList.add('blackInput')
+    })
+    document.querySelector('.back').classList.add('whiteColor')
+}
 send.addEventListener('click', function(){
     const name = document.querySelector('#nameInp');
     const surname = document.querySelector('#surnameInp');

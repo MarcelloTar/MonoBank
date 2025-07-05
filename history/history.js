@@ -1,8 +1,11 @@
-let objectHistory = JSON.parse(localStorage.getItem('info'))
-console.log(objectHistory);
+let info = JSON.parse(localStorage.getItem('info'))
+console.log(info);
 
 const boxInfoContent = document.querySelector('.boxInfoContent');
 const select = document.querySelector('select');
+
+
+
 // console.log(objectHistory[0].historyLogs[0].credits);
 // console.log(Object.keys(objectHistory[0].historyLogs));
 
@@ -23,34 +26,41 @@ const select = document.querySelector('select');
 
 
 
-for (let i = 0; i < Object.keys(objectHistory.cards[0].historyLogs).length; i++) {
+for (let i = 0; i < Object.keys(info.cards[0].historyLogs).length; i++) {
      operationTypeFun(0, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
      operationTypeFun(0, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
      operationTypeFun(0, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
 }
-
+document.querySelector('.wrap').classList.add(info.background)
+if (info.topic === 'dark') {
+    document.querySelector('.boxInfo').classList.add('blackhon')
+    document.querySelectorAll('.box').forEach(item => {
+        item.classList.add('blackBorder')
+    })
+    select.classList.add('blackSelect')
+    document.querySelector('.back').classList.add('whiteColor')
+}
 
 select.addEventListener('change', () => {
     let selectValue = select.value 
     boxInfoContent.innerHTML = ''
-    for (let i = 0; i < Object.keys(objectHistory.cards[selectValue].historyLogs).length; i++) {
+    for (let i = 0; i < Object.keys(info.cards[selectValue].historyLogs).length; i++) {
         operationTypeFun(selectValue, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
         operationTypeFun(selectValue, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
         operationTypeFun(selectValue, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
     }
 })
 
-
 function operationTypeFun(numberCard, i, text, img, title, sign, number = 1, text2 = '') {
-    if (objectHistory.cards[numberCard].historyLogs[i].operationType === text) {
+    if (info.cards[numberCard].historyLogs[i].operationType === text) {
          boxInfoContent.innerHTML += `
           <div class="box">
              <div class="boxImgText">
                  ${img}
-                 <p class="money">${sign + objectHistory.cards[numberCard].historyLogs[i].credits}</p>
+                 <p class="money">${sign + info.cards[numberCard].historyLogs[i].credits}</p>
              </div>
              <p class="text">${title}</p>
-             <p class="date">${objectHistory.cards[numberCard].historyLogs[i].operationTime}</p>
+             <p class="date">${info.cards[numberCard].historyLogs[i].operationTime}</p>
          </div>
         `
         return   

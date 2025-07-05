@@ -6,6 +6,10 @@
 body{
     overflow: hidden;
 }
+a{
+    color: #000;
+    text-decoration: none;
+}
 .wrapper {
     height: 100vh;
 }
@@ -103,6 +107,9 @@ header{
 .menuBox button img{
     margin-right: 38px;
 }
+.menuBox a img{
+    margin-right: 38px;
+}
 
 .cardBox-top {
     display: flex;
@@ -177,8 +184,8 @@ header{
     text-decoration: none;
 }
 .changesDataBoxImg{
-    display: block;
-    margin: 10px auto;
+    margin-bottom: 20px;
+    width: 75px;
 }
 .backgroundBox{
     display: flex;
@@ -282,6 +289,10 @@ header{
     font-size: 24px;
     font-family: "Inter",sans-serif;
     font-weight: 600;
+    background-color: #D5D6DF;
+    border: none;
+    cursor: pointer;
+    color: #000;
 }
 .modalContent{
     display: flex;
@@ -391,21 +402,7 @@ header{
 
 
 
-.blackhon{
-    background-color: #404040;
-    color: #fff;
-}
-.blackhon input{
-    color: #fff;
-    border-color: #fff;
-}
-.blackhonbutton{
-    background-color: #5A585C;
-    color: #fff;
-}
-.blackhonbutton:hover{
-    background-color: #4e4c50;
-}
+
 .animationMessageStart{
     animation: message 1s both;
 }
@@ -431,6 +428,7 @@ header{
     justify-content: center;
     align-items: center;
 }
+
 .modal__dialog{
     /* max-width: 500px;
     margin: 40px auto; */
@@ -483,15 +481,6 @@ header{
     padding:0 20px;
     outline:0
 }
-.modal .btn{
-    display:block;
-    width:280px;
-    margin:0 auto
-}
-.fade{
-    animation-name: fade;animation-duration: 1.5s;
-}
-@keyframes fade{from{opacity: 0.1;}to{opacity: 1;}}
 
 
 .modalchangeCardBox{
@@ -535,7 +524,6 @@ header{
     height: 67px;
     border-radius: 10px;
 }
- 
 .cardImg{
     width: 216px;
     height: 136px;
@@ -607,6 +595,34 @@ header{
     background: linear-gradient(140deg,rgba(137, 113, 149, 1) 0%, rgba(181, 167, 182, 1) 100%);
 }
 
+
+
+
+.blackhon{
+    background-color: #404040;
+    color: #fff;
+}
+.blackhon input{
+    color: #fff;
+    border-color: #fff;
+}
+.blackhonbutton{
+    background-color: #5A585C !important;
+    color: #fff !important;
+}
+.blackhonbutton:hover{
+    background-color: #4e4c50 !important;
+}
+.filterImgBlack{
+    filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(18%) hue-rotate(337deg) brightness(103%) contrast(107%);
+}
+.filterImgBlack:hover{
+    filter: brightness(0) saturate(100%) invert(97%) sepia(0%) saturate(218%) hue-rotate(241deg) brightness(88%) contrast(101%) !important;
+}
+.whiteColor{
+    color: #fff;
+}
+
 .back{
     cursor: pointer;
     position: absolute;
@@ -614,7 +630,7 @@ header{
     top: 3px;
     left: 23px;
     transition: transform 1s;
-    color: #000;
+    /* color: #000; */
 }
 .back:hover{
     transform: rotate(360deg);

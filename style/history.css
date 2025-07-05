@@ -16,6 +16,7 @@
     background-color: #fff;
     width: 40%;
     border-radius: 15px;
+    position: relative;
 }
 h1{
     font-size: 50px;
@@ -67,6 +68,63 @@ select{
     border: none;
     font-size: 16px;
     outline: none;
+}
+.back{
+    cursor: pointer;
+    position: absolute;
+    font-size: 35px;
+    top: 3px;
+    left: 23px;
+    transition: transform 1s;
+    color: #000;
+    text-decoration: none;
+}
+.back:hover{
+    transform: rotate(360deg);
+}
+.background1{
+    background: linear-gradient(130deg, rgba(150,28,193,1) 0%, rgba(105,93,241,1) 100%);
+}
+.background2{
+    background: linear-gradient(140deg,rgba(58, 219, 112, 1) 0%, rgba(76, 169, 129, 1) 100%);
+}
+.background3{
+    background: linear-gradient(140deg,rgba(216, 222, 34, 1) 0%, rgba(244, 152, 61, 1) 100%);
+}
+.background4{
+    background: linear-gradient(140deg,rgba(204, 204, 204, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgba(204, 204, 204, 1);
+}
+.background5{
+    background: linear-gradient(140deg,rgba(107, 107, 107, 1) 0%, rgba(103, 101, 101, 1) 100%);
+}
+.background6{
+    background: linear-gradient(140deg,rgba(0, 149, 255, 1) 0%, rgba(55, 213, 230, 1) 100%);
+}
+.background7{
+    background: linear-gradient(140deg,rgba(151, 215, 251, 1) 0%, rgba(166, 193, 223, 1) 100%);
+}
+.background8{
+    background: linear-gradient(140deg,rgba(133, 26, 56, 1) 0%, rgba(197, 94, 52, 1) 50%, rgba(112, 88, 90, 1) 100%);
+}
+.background9{
+    background: linear-gradient(140deg,rgba(137, 113, 149, 1) 0%, rgba(181, 167, 182, 1) 100%);
+}
+
+
+.blackhon{
+    background-color: #404040;
+    color: #fff;
+}
+.whiteColor{
+    color: #fff;
+}
+.blackBorder{
+    border: 1px solid #5b5b5b
+}
+.blackSelect{
+    background-color: #404040;
+    color: #fff;
 }
 
 @media screen and (max-width: 1440px) {
