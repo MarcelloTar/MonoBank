@@ -10,6 +10,9 @@ a{
     color: #000;
     text-decoration: none;
 }
+input:focus{
+    outline: none;
+}
 .wrapper {
     height: 100vh;
 }
@@ -276,7 +279,7 @@ header{
     width: 347px;
     height: 51px;
     border-radius: 15px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     margin-bottom: 20px;
     padding-left: 10px;
     font-size: 20px;
@@ -377,16 +380,18 @@ header{
     align-self: flex-end;
     p{
        padding: 10px 30px;
-       border: 1px solid #000;
+       border: 2px inset light-dark(rgb(118, 118, 118), rgb(133, 133, 133)) ;
        border-radius: 5px;
-    }
-    select{
-        border: none;
-        outline: none;
-        font-size: 20px;
-        font-weight: normal;
-    }
+    } 
 }
+.select{
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #fff;
+}
+
 
 
 
@@ -604,7 +609,6 @@ header{
 }
 .blackhon input{
     color: #fff;
-    border-color: #fff;
 }
 .blackhonbutton{
     background-color: #5A585C !important;
@@ -621,6 +625,13 @@ header{
 }
 .whiteColor{
     color: #fff;
+}
+.selectBlack{
+    background-color: #404040;
+    color: #fff;
+}
+.limitBlack{
+    color: #c1c1c1;
 }
 
 .back{

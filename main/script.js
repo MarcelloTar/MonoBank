@@ -218,7 +218,7 @@ deposite.addEventListener('click', function(){
 })
 
 breeding.addEventListener('click', function () {
-    let breedingText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let breedingText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(breedingText)
     modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
@@ -232,7 +232,7 @@ breeding.addEventListener('click', function () {
 })
 
 changeLimit.addEventListener('click', function () {
-    let changeLimitText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let changeLimitText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(changeLimitText)
     modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
@@ -298,14 +298,16 @@ changeCard.addEventListener('click', () => {
 document.querySelector('#fundsTransfer').addEventListener('click', () => {
     textModal(`
         <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
+        <h1>Переславати кошти</h1>
+        <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: ${user.getTransactionLimit()}</p>
         <div class="fundsTransferContent">
                     <div class="fundsTransferContentLeft">
-                        <p class="whatCardText">card1</p>
+                        <p class="whatCardText"></p>
                         <input type="number" name="" id="inputNumber">
                     </div>
 
                     <div class="fundsTransferContentRight">
-                        <select name="" id="selectCard">
+                        <select name="" id="selectCard" class="select ${info.topic === 'dark' ? 'selectBlack' : ''}">
                         </select>
                         <p class='NumberText'>0</p>
                     </div>
@@ -389,7 +391,8 @@ function whiteOrBlack(methodClass) {
     backgroundBlocks.forEach((backgroundBlock) =>{
         backgroundBlock.classList[methodClass]('blackhon')
     })
-    buttons.forEach((button) =>{
+    document.querySelector('.history').classList[methodClass]('blackhonbutton')
+    buttons.forEach((button) =>{ 
         button.classList[methodClass]('blackhonbutton')
     })
     modalContent.classList[methodClass]('blackhon')
