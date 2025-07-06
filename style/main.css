@@ -626,12 +626,20 @@ header{
 .whiteColor{
     color: #fff;
 }
+.blackColor{
+    color: #000000bd   !important;
+}
 .selectBlack{
     background-color: #404040;
     color: #fff;
 }
 .limitBlack{
     color: #c1c1c1;
+}
+.messageBlack{
+    background-color: #4b4b4b;
+    border: none;
+    color: #fff;
 }
 
 .back{
@@ -803,6 +811,12 @@ header{
     #inputNumber{
         width: 100px;
     }
+    .message{
+        width: 322px;
+    }
+    .messageText{
+        font-size: 25px;
+    }
 }
 
 @media screen and (max-width: 655px) {
@@ -935,6 +949,13 @@ header{
     .modal__close{
         top: 0px;
         right: 4px;
+    }
+    .message{
+        width: 265px;
+        height: 65px;
+    }
+    .messageText{
+        font-size: 25px;
     }
 }
 

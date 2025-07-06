@@ -178,6 +178,7 @@ const backgroundBlocks = document.querySelectorAll('.backgroundBlock');
 
 const buttons = document.querySelectorAll('button');
 const message = document.querySelector('.message');
+const messageText = document.querySelector('.messageText');
 const money = document.querySelector('.money');
 const modal = document.querySelector('.modal');
 const modalContent = document.querySelector('.modalContent');
@@ -237,6 +238,8 @@ changeLimit.addEventListener('click', function () {
     modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
     document.querySelector('.buttonEvent').addEventListener('click', function(){
+        messageText.textContent = 'Ліміт змінено'
+        getMessage()
         user.setTransactionLimit(+input.value)
     })
 })
@@ -283,7 +286,7 @@ changeCard.addEventListener('click', () => {
         money.textContent = user.getBalance()
         numberCard.textContent = info.cards[cardNum].numberCard.join('')
         document.querySelector('.cardBox').style.background = `url('../img/main/cards/${info.cards[cardNum].styleCard}.png') no-repeat`
-         document.querySelector('.cardBox').style.backgroundSize = 'cover'
+        document.querySelector('.cardBox').style.backgroundSize = 'cover'
         console.log(info.cards[cardNum].styleCard);
         
         info.pageCard = cardNum
@@ -372,9 +375,9 @@ function getMessage() {
     message.classList.add('animationMessageStart')
     setTimeout(() => {
         message.classList.remove('animationMessageStart')
+        messageText.textContent = 'Транзакція прийшла успішно'
     }, 3000);
 }
-
 
 function textModal(text) {
     modal.classList.remove('none');
@@ -410,6 +413,7 @@ function whiteOrBlack(methodClass) {
     if (back) {
         back.classList[methodClass]('whiteColor')
     }
+    message.classList[methodClass]('messageBlack')
 }
 
 let attrCard
@@ -479,9 +483,9 @@ function addEventListenerFun() {
                 <img src="../img/main/logo/imgLogo4.png" alt="" data-logoImg="imgLogo4" class="boxStyleLogoImg">
                 <img src="../img/main/logo/imgLogo5.png" alt="" data-logoImg="imgLogo5" class="boxStyleLogoImg">
                 <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo6" class="boxStyleLogoImg">
-                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo7" class="boxStyleLogoImg">
-                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo8" class="boxStyleLogoImg">
-                <img src="../img/main/logo/imgLogo6.png" alt="" data-logoImg="imgLogo9" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo7.png" alt="" data-logoImg="imgLogo7" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo8.png" alt="" data-logoImg="imgLogo8" class="boxStyleLogoImg">
+                <img src="../img/main/logo/imgLogo9.png" alt="" data-logoImg="imgLogo9" class="boxStyleLogoImg">
             </div>
             <button class="save ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Зберегти</button>
         `
@@ -641,6 +645,7 @@ function styleFun() {
             () => {
                 document.querySelector('.cardBox').style.background = `url('/img/main/cards/${attrCard}.png') no-repeat`
                 document.querySelector('.cardBox').style.backgroundSize = `cover`
+                // blackTextOrWhiteTextCard()
                 info.cards[user.getCard()].styleCard = attrCard
                 localStorage.setItem('info', JSON.stringify(info))
             }
@@ -681,3 +686,14 @@ document.addEventListener('keydown', (e) => {
         closeModal();
     }
 });
+function blackTextOrWhiteTextCard() {
+    if (attrCard === 'styleCard4' || attrCard === 'styleCard8' ) {
+        document.querySelector('.moneyText').classList.add('blackColor')
+        document.querySelector('.visa').classList.add('blackColor')
+        numberCard.classList.add('blackColor')
+    } else {
+        document.querySelector('.moneyText').classList.remove('blackColor')
+        document.querySelector('.visa').classList.remove('blackColor')
+        numberCard.classList.remove('blackColor')
+    }
+}

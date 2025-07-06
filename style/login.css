@@ -80,6 +80,23 @@ body{
     height: 75px;
 }
 
+
+
+.message{
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    padding: 10px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    /* transform: translateX(-50%) !important; */
+    border-radius: 0 0 10px 10px;
+}
+
+.animationMessageStart{
+    animation: message 2s both;
+}
+
 @media screen and (max-width: 1440px) {
     .box{
         width: 80%;
@@ -143,5 +160,16 @@ body{
     }
     .box{
         width: 95%;
+    }
+}
+
+
+
+@keyframes message{
+    0%{
+        transform: translate(-50%, -100%);
+    }
+    100%{
+        transform: translate(-50%, 0);
     }
 }

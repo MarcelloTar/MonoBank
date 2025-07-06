@@ -2,9 +2,8 @@ const email = document.querySelector('#emailInp');
 
 const box_left = document.querySelector('.box_left');
 const send = document.querySelector('.send');
-const pinkodNumber = document.querySelector('.pinkodNumber');
 const message = document.querySelector('.message');
-
+let pincod = []
 
 send.addEventListener('click', (event) => {
     event.preventDefault();
@@ -25,25 +24,23 @@ send.addEventListener('click', (event) => {
                 <div class="stage"><p>3</p></div>
             </div>
         `
-        let pincod = []
         for (let i = 0; i < 4; i++) {
             let randomNumber = Math.floor(Math.random()*9)
             pincod.push(randomNumber)
         }
-        pinkodNumber.textContent = pincod.join('')
+        // pinkodNumber.textContent = pincod.join('')
         getMessage()
         const codes  = document.querySelectorAll('.code');
         document.querySelector('.confirm').addEventListener('click', () => {
            for (let i = 0; i < codes.length; i++) {
                 if (!codes[i].value || typeof(+codes[i]) !== "number") {
-                    console.log('помивка');
                     
                     return
                 }
            }
 
-            let userPincod = []
             
+            let userPincod = []
             codes.forEach(item => {
                 userPincod.push(+item.value)
             })
@@ -84,7 +81,7 @@ send.addEventListener('click', (event) => {
                 const password1 = document.querySelector('#passwordInp1');
                 const password2 = document.querySelector('#passwordInp2');
                 const registrationBtn = document.querySelector('#registrationBtn');
-                registrationBtn.addEventListener('click', () =>{
+                registrationBtn.addEventListener('click', () => {
                     if (email.value && name.value && password1.value && password2.value) {
                         if(password1.value === password2.value){
                             
@@ -98,33 +95,44 @@ send.addEventListener('click', (event) => {
                             // alert('Registration successfull')
                             window.location.href = '../login/login.html'
                         } else{
-                            alert('Passwords don`t match')
+                            errorMessage('Не співпадають паролі')
                         }
                     } else {
-                        alert('Запомніть всі поля')
+                        errorMessage('Заповніть всі поля')
                     }
                 })
+            } else{
+                errorMessage('Ви ввеви не правильний пінкод. Спробуйте ще раз', true)
             }
-           
-           
-           
-           
-    
-            
         })
-    } else {
-        alert('Введіть елктронну пошту ')
     }
-
-
 })
 
 
 
 
 function getMessage() {
+    message.innerHTML = `<p class="emailText">Повідомлення від monoBank@gmail.com</p>
+    <p class="pinkod">Пін код: <span class="pinkodNumber"></span></p>`
     message.classList.add('animationMessageStart')
+    console.log(pincod);
+    const pinkodNumber = document.querySelector('.pinkodNumber');
+    pinkodNumber.textContent = pincod.join('')
+}
+
+function errorMessage(text, pin = false) {
+    message.classList.remove('animationMessageStart')
+    message.innerHTML = `<p class="error">${text}</p>`
+    message.classList.add('animationMessageStart')
+    if (pin) {
+        setTimeout(() => {
+            message.classList.remove('animationMessageStart')
+            getMessage()
+            return
+        }, 3000);
+    }
     setTimeout(() => {
         message.classList.remove('animationMessageStart')
-    }, 500000);
+    }, 3000);
+   
 }
