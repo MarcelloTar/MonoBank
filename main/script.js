@@ -71,7 +71,7 @@ function UserCard(card){
         return this._transactionLimit
     }
  
-    this.putCredits = (amount) => {
+    this.putCredits = (amount) => { 
         this._balance += amount;
         logOperation("Received credits", amount)
         console.log(this._historyLogs);
@@ -414,6 +414,9 @@ function whiteOrBlack(methodClass) {
         back.classList[methodClass]('whiteColor')
     }
     message.classList[methodClass]('messageBlack')
+    document.querySelectorAll('.iconChange').forEach(item => {
+        item.classList[methodClass]('filterImgBlack')
+    })
 }
 
 let attrCard
