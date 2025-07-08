@@ -34,10 +34,60 @@ button{
 button:hover{
     background-color: #612ecf;
 }
-button:not(:last-child){
+.register{
     margin-right: 20px;
 }
 a{
     text-decoration: none;
     color: white;
+}
+
+@media screen and (max-width: 768px) {
+    h1{
+        font-size: 40px;
+    }
+    button{
+        width: 240px;
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 540px) {
+    h1{
+        font-size: 30px;
+    }
+    button{
+        width: 195px;
+        font-size: 20px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .signBox{
+        width: 100%;
+    }
+   .register{
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    button{
+        display: block;
+        margin: 0 auto; 
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    img{
+        width: 260px;
+    }
+    h1{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    h1{
+        font-size: 22px;
+    }
 }
