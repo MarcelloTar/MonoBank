@@ -36,6 +36,7 @@ header{
     display: flex;
     align-items: center;
     gap: 20px;
+    cursor: pointer;
 }
 .myName{
     /* color: #000; */
@@ -322,7 +323,7 @@ header{
     flex-direction: column;
     margin: 30% 0;
 }
-.modal__close{
+.modalClose{
     position:absolute;
     top:8px;
     right:14px;
@@ -335,7 +336,7 @@ header{
     cursor:pointer;
     transition: all 1s;
 }
-.modal__close:hover{
+.modalClose:hover{
     transform: rotate(180deg);
 }
 .modalchangeCardBox{
@@ -768,7 +769,7 @@ header{
     .modal h1{
         font-size: 25px;
     }
-    .modal__close{
+    .modalClose{
         top: 0px;
         right: 4px;
     }

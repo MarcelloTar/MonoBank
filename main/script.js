@@ -210,7 +210,7 @@ document.querySelector('.main').classList.add(info.background)
 money.textContent = user.getBalance()
 
 deposite.addEventListener('click', function(){
-    let depositeText = ` <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let depositeText = ` <div class="modalClose ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(depositeText)
 
     const input = document.querySelector('.input');
@@ -229,7 +229,7 @@ deposite.addEventListener('click', function(){
 })
 
 breeding.addEventListener('click', function () {
-    let breedingText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let breedingText =  `<div class="modalClose ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(breedingText)
     const input = document.querySelector('.input');
     document.querySelector('.buttonEvent').addEventListener('click', function(){
@@ -246,7 +246,7 @@ breeding.addEventListener('click', function () {
 })
 
 changeLimit.addEventListener('click', function () {
-    let changeLimitText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let changeLimitText =  `<div class="modalClose ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(changeLimitText)
     const input = document.querySelector('.input');
     document.querySelector('.buttonEvent').addEventListener('click', function(){
@@ -274,7 +274,7 @@ changeCard.addEventListener('click', () => {
             <img src="../img/main/cards/${info.cards[2].styleCard}.png" alt="">
         </div>
     </div>
-    <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>   
+    <div class="modalClose ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>   
     <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>
     `
     let cardNum
@@ -310,7 +310,7 @@ changeCard.addEventListener('click', () => {
 
 document.querySelector('#fundsTransfer').addEventListener('click', () => { 
     textModal(`
-        <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
+        <div class="modalClose ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
         <h1>Переславати кошти</h1>
         <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: ${user.getTransactionLimit()}</p>
         <div class="fundsTransferContent">
@@ -606,10 +606,10 @@ function back() {
         styleFun()
     })
 }
-//  <button class="changesDataBoxButton ${info.topic === 'dark' ? 'blackhonbutton' : ''}"><a href="../account/account.html" class="${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити дані</a></button>
+
 function styleFun() {
      textModal( `
-                <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
+                <div class="modalClose ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
                 <img src="../img/main/logo/${info.logo}.png" alt="" class="changesDataBoxImg logoImg">
                 <h1 class="myName">${jsonSign.name}</h1>
                 <a href="../account/account.html" class="changesDataBoxButton ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити дані</a>
