@@ -72,7 +72,7 @@ function UserCard(card){
     }
  
     this.putCredits = (amount) => { 
-        this._balance += amount;
+        this._balance += Math.round(amount);
         logOperation("Received credits", amount)
         console.log(this._historyLogs);
         info.cards[card].balance = this._balance
@@ -82,40 +82,43 @@ function UserCard(card){
     }
  
     this.takeCredits = (amount) =>{
-        if(this._balance >= amount && this._transactionLimit >= amount){
-            this._balance -= amount;
-            logOperation('Withdrawn of credits', amount)
-            info.cards[card].balance = this._balance
-            info.cards[card].historyLogs = this._historyLogs
-            localStorage.setItem('info', JSON.stringify(info))
-            return this._balance;
-        } else{
-            console.error("Not enough credits or transaction limit exceeded");
+        if (this._balance <= amount) {
+            messageText.textContent = 'У вас стількі грошей нема'
+            getMessage()
+            return
         }
+        if (this._transactionLimit <= amount) {
+            messageText.textContent = 'Ви перевищили ліміт'
+            getMessage()
+            return
+        }
+        this._balance -= Math.round(amount);
+        logOperation('Withdrawn of credits', amount)
+        info.cards[card].balance = this._balance
+        info.cards[card].historyLogs = this._historyLogs
+        localStorage.setItem('info', JSON.stringify(info))
+        return this._balance;
     }
- 
     this.setTransactionLimit = (amount) => {
-        if(amount< 0 ){
-            return console.error("Transaction limit can't be negative");
-        } else{
-            this._transactionLimit = amount;
+            this._transactionLimit = Math.round(amount);
             logOperation("Transaction limit changed", amount)
             info.cards[card].transactionLimit = this._transactionLimit
             info.cards[card].historyLogs = this._historyLogs
             localStorage.setItem('info', JSON.stringify(info))
-            return `Transaction limit set to ${this._transactionLimit}`
-        }
- 
     }
     this.transferCredits = (amount) => {
         const tax = amount * 0.005; 
         const totalAmount = amount + tax;
-        if(totalAmount> this._balance){
-            return console.warn("Not enough credits");
+        if(totalAmount > this._balance){
+            messageText.textContent = 'У вас стількі грошей нема'
+            getMessage()
+            return
         }
  
         if( totalAmount > this._transactionLimit){
-            return console.warn("Transaction limit exceeded");
+            messageText.textContent = 'Ви перевищили ліміт'
+            getMessage()
+            return
         }
  
        this._balance -= amount;
@@ -127,15 +130,12 @@ function UserCard(card){
         info.cards[card].balance = this._balance
         info.cards[card].historyLogs = this._historyLogs
         localStorage.setItem('info', JSON.stringify(info))
-        return totalAmount
-        // return `Transfered ${amount} credits to card ${card.getCardOptions().key}`
-
+        return Math.ceil(totalAmount)
  
     }
  
  
 }
-
 
 class UserAccount {
     constructor(name){
@@ -172,6 +172,9 @@ class UserAccount {
 }
 
 let user = new UserCard(0)
+let attrCard
+let attrlogo
+let attrBackground
 
 const imgName = document.querySelector('.box_imgName');
 const backgroundBlocks = document.querySelectorAll('.backgroundBlock');
@@ -188,13 +191,14 @@ const changeLimit = document.querySelector('#ChangeLimit');
 const changeCard = document.querySelector('#changeCard');
 const myName = document.querySelectorAll('.myName');
 const logoImg = document.querySelectorAll('.logoImg')
-
+const numberCard = document.querySelector('#numberCard');
+const cardBox = document.querySelector('.cardBox');
 myName[0].textContent = jsonSign.name
 logoImg[0].src = `../img/main/logo/${info.logo}.png`
-document.querySelector('.cardBox').style.background = `url('../img/main/cards/${info.cards[0].styleCard}.png') no-repeat`
-document.querySelector('.cardBox').style.backgroundSize = `cover`
+cardBox.style.background = `url('../img/main/cards/${info.cards[0].styleCard}.png') no-repeat`
+cardBox.style.backgroundSize = `cover`
 
-const numberCard = document.querySelector('#numberCard');
+
 numberCard.textContent = info.cards[0].numberCard.join('')
 
 if (info.topic == 'dark') {
@@ -206,41 +210,54 @@ document.querySelector('.main').classList.add(info.background)
 money.textContent = user.getBalance()
 
 deposite.addEventListener('click', function(){
-    let depositeText = ` <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let depositeText = ` <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Поповнити баланс</h1> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(depositeText)
-    modalContent.classList.remove('modalchangeCardBox')
 
     const input = document.querySelector('.input');
     document.querySelector('.buttonEvent').addEventListener('click', function(){
-        user.putCredits(+input.value)
-        money.textContent = user.getBalance()
-        getMessage()
+        if (+input.value >= 0) {
+            user.putCredits(+input.value)
+            money.textContent = user.getBalance()
+            getMessage() 
+        } else {
+            messageText.textContent = "Ви ввели від'ємне число"
+            getMessage() 
+        }
+          
+       
     })
 })
 
 breeding.addEventListener('click', function () {
-    let breedingText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let breedingText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Вивести</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Ваш ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(breedingText)
-    modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
     document.querySelector('.buttonEvent').addEventListener('click', function(){
-        user.takeCredits(+input.value)
-        money.textContent = user.getBalance()
-        getMessage()
-        
+        if (+input.value >= 0) {
+            user.takeCredits(+input.value)
+            money.textContent = user.getBalance()
+            getMessage()
+        } else {
+            messageText.textContent = "Ви ввели від'ємне число"
+            getMessage() 
+        }
     })
     
 })
 
 changeLimit.addEventListener('click', function () {
-    let changeLimitText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="text" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
+    let changeLimitText =  `<div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div> <h1>Змінити ліміт</h1> <p class="limit ${info.topic === 'dark' ? 'limitBlack' : ''}">Поточний ліміт: <span>${user.getTransactionLimit()}</span></p> <input type="number" class="input"> <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`
     textModal(changeLimitText)
-    modalContent.classList.remove('modalchangeCardBox')
     const input = document.querySelector('.input');
     document.querySelector('.buttonEvent').addEventListener('click', function(){
-        messageText.textContent = 'Ліміт змінено'
-        getMessage()
-        user.setTransactionLimit(+input.value)
+        if (+input.value >= 0) {
+            messageText.textContent = 'Ліміт змінено'
+            getMessage()
+            user.setTransactionLimit(+input.value)
+        } else {
+            messageText.textContent = "Ви ввели від'ємне число"
+            getMessage() 
+        }
     })
 })
 
@@ -261,18 +278,12 @@ changeCard.addEventListener('click', () => {
     <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>
     `
     let cardNum
-    modalContent.classList.add('modalchangeCardBox')
     textModal(changeCardText)
+    modalContent.classList.add('modalchangeCardBox')
     const card = document.querySelectorAll('.card');
     card.forEach((item, index) => {
         item.addEventListener('click', () => {
-            // user = new UserCard(index)
-            // console.log(user);
             cardNum = index
-            // money.textContent = user.getBalance()
-            // console.log(user.getBalance());
-
-            
             for (let i = 0; i < card.length; i++) {
                 document.querySelectorAll('.card img')[i].classList.remove('activCard')
             }
@@ -285,8 +296,8 @@ changeCard.addEventListener('click', () => {
         user = new UserCard(cardNum)
         money.textContent = user.getBalance()
         numberCard.textContent = info.cards[cardNum].numberCard.join('')
-        document.querySelector('.cardBox').style.background = `url('../img/main/cards/${info.cards[cardNum].styleCard}.png') no-repeat`
-        document.querySelector('.cardBox').style.backgroundSize = 'cover'
+        cardBox.style.background = `url('../img/main/cards/${info.cards[cardNum].styleCard}.png') no-repeat`
+        cardBox.style.backgroundSize = 'cover'
         console.log(info.cards[cardNum].styleCard);
         
         info.pageCard = cardNum
@@ -297,8 +308,7 @@ changeCard.addEventListener('click', () => {
 
 })
 
-
-document.querySelector('#fundsTransfer').addEventListener('click', () => {
+document.querySelector('#fundsTransfer').addEventListener('click', () => { 
     textModal(`
         <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
         <h1>Переславати кошти</h1>
@@ -316,12 +326,12 @@ document.querySelector('#fundsTransfer').addEventListener('click', () => {
                     </div>
             </div>
             <button class="buttonEvent ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Підтвердити</button>`)
-    whatCard(2)
+    whatCard()
     
     const inputNumber = document.querySelector('#inputNumber');
     inputNumber.addEventListener('input', () => {
         // number = user.transferCredits(+inputNumber.value)
-        document.querySelector('.NumberText').textContent = +inputNumber.value + (+inputNumber.value * 0.005)
+        document.querySelector('.NumberText').textContent = Math.ceil(+inputNumber.value + (+inputNumber.value * 0.005))
     })
     const select = document.querySelector('#selectCard');
     let selectCard = select.value
@@ -329,31 +339,47 @@ document.querySelector('#fundsTransfer').addEventListener('click', () => {
         selectCard = select.value
     })
     document.querySelector('.buttonEvent').addEventListener('click', () => {
-        let moneyNumber = user.transferCredits(+inputNumber.value)
-        console.log(moneyNumber);
-        
-        money.textContent = user.getBalance()
-        console.log(user.getBalance());
-        let expiredСard = user.getCard()
-        user = new UserCard(+selectCard)
-        user.putCredits(moneyNumber)
-        user = new UserCard(expiredСard)
+        if (+inputNumber.value >= 0) {
+            let moneyNumber = user.transferCredits(+inputNumber.value)
+            if (moneyNumber !== undefined) {
+                console.log(moneyNumber);
+                money.textContent = user.getBalance()
+                console.log(user.getBalance());
+                let expiredСard = user.getCard()
+                user = new UserCard(+selectCard)
+                user.putCredits(moneyNumber)
+                user = new UserCard(expiredСard)
+                getMessage() 
+            }
+        } else {
+            messageText.textContent = "Ви ввели від'ємне число"
+            getMessage() 
+        }
     })
 
 })
 
+imgName.addEventListener('click', () => {
+   styleFun()
+})
 
-function whatCard(number) {
-    if (user.getCard() == number) {
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+
+function whatCard() {
         document.querySelector('.whatCardText').textContent = 'card' + (+user.getCard() + 1)
         let select = document.querySelector('#selectCard')
 
-        if (number == 2) {
+        if (user.getCard() == 2) {
             select.innerHTML = `
                 <option value="1">card2</option>
                 <option value="0">card1</option>
             `
-        } else if(number == 1) {
+        } else if(user.getCard() == 1) {
             select.innerHTML = `
                 <option value="2">card3</option>
                 <option value="0">card1</option>
@@ -364,12 +390,7 @@ function whatCard(number) {
                 <option value="1">card2</option>
             `
         }
-        return
-    }
-    whatCard(number - 1)
 }
-
-
 
 function getMessage() {
     message.classList.add('animationMessageStart')
@@ -380,6 +401,7 @@ function getMessage() {
 }
 
 function textModal(text) {
+    modalContent.classList.remove('modalchangeCardBox')
     modal.classList.remove('none');
     document.body.style.overflow = 'hidden'
     modalContent.innerHTML = ''
@@ -387,8 +409,6 @@ function textModal(text) {
     const modalCloseBtn = document.querySelector('[data-close]');
     modalCloseBtn.addEventListener('click', closeModal);
 }
-
-
 
 function whiteOrBlack(methodClass) {
     backgroundBlocks.forEach((backgroundBlock) =>{
@@ -418,14 +438,6 @@ function whiteOrBlack(methodClass) {
         item.classList[methodClass]('filterImgBlack')
     })
 }
-
-let attrCard
-let attrlogo
-let attrBackground
-imgName.addEventListener('click', () => {
-   styleFun()
-})
-
 
 function addEventListenerFun() {
     document.querySelector('.iconCardButton').addEventListener('click', () => {      
@@ -459,8 +471,8 @@ function addEventListenerFun() {
                 }, 
                 '[data-cards]',
                 () => {
-                    document.querySelector('.cardBox').style.background = `url('/img/main/cards/${attrCard}.png') no-repeat`
-                    document.querySelector('.cardBox').style.backgroundSize = `cover`
+                    cardBox.style.background = `url('/img/main/cards/${attrCard}.png') no-repeat`
+                    cardBox.style.backgroundSize = `cover`
                     info.cards[user.getCard()].styleCard = attrCard
                     localStorage.setItem('info', JSON.stringify(info))
                 }
@@ -549,17 +561,6 @@ function addEventListenerFun() {
             }
 
         )
-        // document.querySelector('.save').addEventListener('click', () => {
-        //     if (attrBackground) {
-        //         for (let i = 1; i <= 9; i++) {
-        //             document.querySelector('.main').classList.remove('background' + i)
-        //         }
-        //         document.querySelector('.main').classList.add(attrBackground)
-        //         info.background = attrBackground
-        //         localStorage.setItem('info', JSON.stringify(info))
-        //     }
-            
-        // })
         back()
         addEventListenerFun()
     })
@@ -605,13 +606,13 @@ function back() {
         styleFun()
     })
 }
-
+//  <button class="changesDataBoxButton ${info.topic === 'dark' ? 'blackhonbutton' : ''}"><a href="../account/account.html" class="${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити дані</a></button>
 function styleFun() {
      textModal( `
                 <div class="modal__close ${info.topic === 'dark' ? 'whiteColor' : ''}" data-close>&times;</div>
                 <img src="../img/main/logo/${info.logo}.png" alt="" class="changesDataBoxImg logoImg">
                 <h1 class="myName">${jsonSign.name}</h1>
-                <button class="changesDataBoxButton ${info.topic === 'dark' ? 'blackhonbutton' : ''}"><a href="../account/account.html" class="${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити дані</a></button>
+                <a href="../account/account.html" class="changesDataBoxButton ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити дані</a>
                 <button class="changeStyle ${info.topic === 'dark' ? 'blackhonbutton' : ''}">Змінити стилі</button>
     `)
           
@@ -646,9 +647,8 @@ function styleFun() {
             }, 
             '[data-cards]',
             () => {
-                document.querySelector('.cardBox').style.background = `url('/img/main/cards/${attrCard}.png') no-repeat`
-                document.querySelector('.cardBox').style.backgroundSize = `cover`
-                // blackTextOrWhiteTextCard()
+                cardBox.style.background = `url('/img/main/cards/${attrCard}.png') no-repeat`
+                cardBox.style.backgroundSize = `cover`
                 info.cards[user.getCard()].styleCard = attrCard
                 localStorage.setItem('info', JSON.stringify(info))
             }
@@ -658,17 +658,14 @@ function styleFun() {
     })
 }
 
-
 function attrFunAndsaveFun(text, attr, text2) {
     document.querySelectorAll(attr).forEach((item) =>{
-            item.addEventListener('click', function () {   
-                    text(item)
+        item.addEventListener('click', function () {   
+            text(item)
         })
     }, { once: false })
     document.querySelector('.save').addEventListener('click', () => {
-        // if (condition) {
-            text2()
-        // }   
+            text2()  
     }, { once: false })
 }
 
@@ -676,27 +673,13 @@ function closeModal() {
     modal.classList.add('none');
     document.body.style.overflow = ''
 }
+
 function openModal() {
     modal.classList.remove('none');
 }
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
-    }
-});
+
 document.addEventListener('keydown', (e) => {
     if (e.code === "Escape" && modal.classList.contains('show')) { 
         closeModal();
     }
 });
-function blackTextOrWhiteTextCard() {
-    if (attrCard === 'styleCard4' || attrCard === 'styleCard8' ) {
-        document.querySelector('.moneyText').classList.add('blackColor')
-        document.querySelector('.visa').classList.add('blackColor')
-        numberCard.classList.add('blackColor')
-    } else {
-        document.querySelector('.moneyText').classList.remove('blackColor')
-        document.querySelector('.visa').classList.remove('blackColor')
-        numberCard.classList.remove('blackColor')
-    }
-}

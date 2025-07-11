@@ -4,28 +4,10 @@ console.log(info);
 const boxInfoContent = document.querySelector('.boxInfoContent');
 const select = document.querySelector('select');
 
-
-
-// console.log(objectHistory[0].historyLogs[0].credits);
-// console.log(Object.keys(objectHistory[0].historyLogs));
-
-
-// let objectToMassif = Object.keys(objectHistory[0].historyLogs)
-// console.log(objectToMassif); 
-
-// if (objectToMassif.length >= 13) {
-//     document.querySelector('.wrap').classList.add('bigwrap')
-//     document.querySelector('.boxInfoContent').classList.add('bigBox')
-// }
-// let massifs = Object.entries(objectHistory)
-
-// console.log(Object.entries(objectHistory));
-
-
-// // console.log(macivs);
-
-
-
+if (info.cards[0].historyLogs.length >= 13) {
+    document.querySelector('.wrap').classList.add('bigwrap')
+    document.querySelector('.boxInfoContent').classList.add('bigBox')
+}
 for (let i = 0; i < Object.keys(info.cards[0].historyLogs).length; i++) {
      operationTypeFun(0, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
      operationTypeFun(0, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
@@ -48,6 +30,13 @@ select.addEventListener('change', () => {
         operationTypeFun(selectValue, i, 'Received credits', '<img src="../img/history/plusImg.png" alt=""></img>', 'Депозит', '+')
         operationTypeFun(selectValue, i, 'Withdrawn of credits', '<img src="../img/history/minusImg33.png" alt="">', 'Знято', '-')
         operationTypeFun(selectValue, i, 'Transaction limit changed', '', 'Зміняно ліміт', '')
+    }
+    if (info.cards[selectValue].historyLogs.length >= 13) {
+        document.querySelector('.wrap').classList.add('bigwrap')
+        document.querySelector('.boxInfoContent').classList.add('bigBox')
+    } else {
+        document.querySelector('.wrap').classList.remove('bigwrap')
+        document.querySelector('.boxInfoContent').classList.remove('bigBox')
     }
 })
 

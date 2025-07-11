@@ -13,6 +13,11 @@ a{
 input:focus{
     outline: none;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
+}
 .wrapper {
     height: 100vh;
 }
@@ -58,16 +63,6 @@ header{
     row-gap: 20px;
     position: relative;
 }
-
-
-
-.BoxModal{
-    display: none;
-}
-
-
-
-
 .cardBox {
     width: 709px;
     height: 445px;
@@ -128,8 +123,6 @@ header{
 }
 .cardBox p{
     color: #fff;
-    
-    
 }
 .moneyText, #numberCard{
     font-style: normal;
@@ -151,48 +144,25 @@ header{
 }
 #numberCard{
     margin: 0 10px;
-    /* margin-bottom: 190px; */
-
-}
-
-
-.changesDataBox {
-    position: absolute;
-    background-color: #fff;
-    width: 250px;
-    height: 303px;
-    top: 0;
-    left: 13px;
-}
-.changesDataBox h1{
-    text-align: center;
-    margin-bottom: 10px;
 }
 .changesDataBoxButton{
-    width: 205px;
-    height: 48px;
-    border-radius: 10px;
-    font-size: 20px;
+    padding: 14px 29px;
+    border-radius: 15px;
+    font-size: 22px;
     font-family: "Inter",sans-serif;
     font-weight: 600;
-    border: 1px solid #000;
     background-color: #D5D6DF;
-    display: block;
-    margin: 0 auto;
     margin-bottom: 10px;
     cursor: pointer;
     color: #000;
-}
-.changesDataBoxButton a{
     text-decoration: none;
+}
+.changesDataBoxButton:hover{
+        background-color: #bababe;
 }
 .changesDataBoxImg{
     margin-bottom: 20px;
     width: 75px;
-}
-.backgroundBox{
-    display: flex;
-    justify-content: space-around;
 }
 .background {
     width: 50px;
@@ -207,67 +177,6 @@ header{
 .black{
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(116,111,111,1) 100%);
 }
-
-.changesIconBox{
-    width: 211px;
-    top: 72px;
-    left: 51px;
-    height: 158px;
-    position: absolute;
-    background-color: #fff;
-}
-.changesIconBox img{
-    cursor: pointer;
-}
-
-.cat {
-    position: absolute;
-    left: 1510px;
-    top: 490px;
-}
-.pizzaCat{
-    position: absolute;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .modal{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #000;
-    width: 700px;
-    height: 700px;
-    background-color: #fff;
-    border-radius: 20px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; */
-/* } */
-
-.modal h1{
-    font-size: 48px;
-    font-family: "Inter",sans-serif;
-    font-weight: 600;
-    margin-bottom: 18px;
-}
 .limit{
     color: #434242;
     font-size: 32px;
@@ -275,62 +184,24 @@ header{
     font-weight: 600;
     margin-bottom: 30px;
 }
-.modal input{
-    width: 347px;
-    height: 51px;
-    border-radius: 15px;
-    /* border: 1px solid #000; */
-    margin-bottom: 20px;
-    padding-left: 10px;
-    font-size: 20px;
-    background-color: #00000000;
-}
-.modal button{
-    width: 196px;
-    height: 54px;
-    border-radius: 15px;
-    font-size: 24px;
-    font-family: "Inter",sans-serif;
-    font-weight: 600;
-    background-color: #D5D6DF;
-    border: none;
-    cursor: pointer;
-    color: #000;
-}
-.modalContent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 30% 0;
-}
-
-
-
 .card{
-    padding: 10px;
-    
+    padding: 10px; 
     border-radius: 15px;
 }
-
 .card img{
     width: 300px;
     height: 200px;
+    border-radius: 15px;
 }
 .activCard{
-    border: 4px solid #b90f94;
+    border: 4px solid #898989;
     border-radius: 21px;
     padding: 0;
 }
-
-
-
-
 .message{
     position: absolute;
     top: 0;
     left: 50%;
-    /* transform: translate(0, 10%); */
     background-color: #fff;
     width: 400px;
     height: 100px;
@@ -345,14 +216,10 @@ header{
 }
 .messageText{
     text-align: center;
-    /* font-size: 25px; */
 }
-
-
 .fundsTransferContent {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     margin-bottom: 20px;
 }
 .fundsTransferContentLeft::after{
@@ -379,9 +246,10 @@ header{
 .fundsTransferContentRight {
     align-self: flex-end;
     p{
-       padding: 10px 30px;
+       padding: 15px 30px;
        border: 2px inset light-dark(rgb(118, 118, 118), rgb(133, 133, 133)) ;
-       border-radius: 5px;
+       border-radius: 15px;
+
     } 
 }
 .select{
@@ -391,35 +259,9 @@ header{
     font-weight: normal;
     background-color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .animationMessageStart{
     animation: message 1s both;
 }
-/* .animationMessageFinish{
-    animation-direction: reverse;
-    animation-fill-mode: none;
-} */
-
-
-
-
-
 .modal{
     position:fixed;
     top:0;
@@ -433,25 +275,52 @@ header{
     justify-content: center;
     align-items: center;
 }
-
-.modal__dialog{
-    /* max-width: 500px;
-    margin: 40px auto; */
-
+.modal h1{
+    font-size: 48px;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+.modal input{
+    width: 347px;
+    height: 51px;
+    border-radius: 15px;
+    /* border: 1px solid #000; */
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 20px;
+    background-color: #00000000;
+}
+#inputNumber{
+    width: 100px;
+    margin: 0;
+}
+.modal button{
+    width: 196px;
+    height: 54px;
+    border-radius: 15px;
+    font-size: 24px;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+    background-color: #D5D6DF;
+    border: none;
+    cursor: pointer;
+    color: #000;
+}
+.modal button:hover{
+    background-color: #bababe;
 }
 .modalContent{
     position:relative;
-    /* width: 600px; */
     width: 550px;
-    /* padding:150px 40px; */
-
     background-color:#fff;
-    /* border:1px solid rgba(0,0,0,.2); */
     border-radius:10px;
-    /* height: 800px; */
     height: 650px;
-    /* height: max-content; */
-    /* overflow-y:auto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30% 0;
 }
 .modal__close{
     position:absolute;
@@ -469,25 +338,6 @@ header{
 .modal__close:hover{
     transform: rotate(180deg);
 }
-.modal__title{text-align:center;
-    font-size:22px;
-    text-transform:uppercase
-}
-.modal__input{
-    display:block;
-    margin:20px auto 20px auto;
-    width:280px;
-    height:50px;
-    background:#fff;
-    box-shadow:0 4px 15px rgba(0,0,0,.2);
-    border:none;
-    font-size:18px;
-    text-align:center;
-    padding:0 20px;
-    outline:0
-}
-
-
 .modalchangeCardBox{
     width: max-content;
 }
@@ -500,15 +350,14 @@ header{
     gap: 15px;
 
 }
-
 .changeStyleModalButton{
     margin-bottom: 20px;
-    
 }
-.changeStyleModalButton img{cursor: pointer;}
+.changeStyleModalButton img{
+    cursor: pointer;
+}
 .changeStyleModalButton img:hover{
     filter: invert(14%) sepia(19%) saturate(13%) hue-rotate(346deg) brightness(94%) contrast(83%);
-    /* color: #333333; */
 }
 .changeStyleModalButton img:not(:last-child){
       margin-right: 20px;  
@@ -535,7 +384,6 @@ header{
     border-radius: 20px;
     margin-bottom: 30px;
 }
-
 .boxstylelogo{
     display: grid;
     grid-template-columns: repeat(3, max-content);
@@ -543,13 +391,11 @@ header{
     gap: 45px;
     margin-bottom: 20px;
 }
-
 .modalLogoImg{
     width: 100px;
     height: 100px;
     margin-bottom: 30px;
 }
-
 .background{
     border-radius: 50px;
 }
@@ -599,10 +445,6 @@ header{
 .background9{
     background: linear-gradient(140deg,rgba(137, 113, 149, 1) 0%, rgba(181, 167, 182, 1) 100%);
 }
-
-
-
-
 .blackhon{
     background-color: #404040;
     color: #fff;
@@ -619,7 +461,6 @@ header{
 }
 .filterImgBlack{
     /* filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(18%) hue-rotate(337deg) brightness(103%) contrast(107%); */ 
-    /* filter: brightness(0) saturate(100%) invert(79%) sepia(50%) saturate(0%) hue-rotate(270deg) brightness(93%) contrast(83%); */
     filter: brightness(0) saturate(100%) invert(77%) sepia(7%) saturate(15%) hue-rotate(35deg) brightness(89%) contrast(86%);
 }
 .filterImgBlack:not(.iconChange):hover{
@@ -630,7 +471,7 @@ header{
     color: #fff;
 }
 .blackColor{
-    color: #000000bd   !important;
+    color: #000000bd  !important;
 }
 .selectBlack{
     background-color: #404040;
@@ -677,6 +518,8 @@ header{
     }
     .message{
         height: 80px;
+    }
+    .messageText{
         font-size: 30px;
     }
 }
@@ -759,26 +602,9 @@ header{
         justify-content: space-evenly;
         align-items: center;
     }
-    /* .cardBoxModal{
-        perspective: 2000px;
-        transform-style: preserve-3d;
-    } */
     .cardBox{
-        /* transform: rotateX(60deg); */
-        /* box-shadow: 2px 39px 29px -5px rgba(66,66,66,0.49); */
-        /* box-shadow: 2px 39px 26px 16px rgba(66,66,66,0.87); */
-        /* box-shadow: 
-            0px 38px 0px -14px rgba(74,43,12,0.87),
-            0px 50px 0px -14px rgba(82,52,31,0.87); */
-
-
-            /* 0px 38px 0px -14px rgba(59, 90, 71, 0.87),
-            0px 38px 0px -14px rgba(59, 90, 71, 0.87),
-            2px 39px 21px 2px rgba(66,66,66,0.87); */
         width: 500px;
         height: 300px;
-        /* position: fixed; */
-        /* z-index: 1000; */
     }
     .modalMoneyText{
         transform: translateY(70px);
@@ -848,6 +674,9 @@ header{
 }
 
 @media screen and (max-width: 510px) {
+    .main{
+        height: 94vh;
+    }
     .menuBox{
         width: 380px;
     }
@@ -882,15 +711,8 @@ header{
     .logomonobank{
         display: none;
     }
-    /* .box_imgName{
-        width: 100%;
-        justify-content: space-between;
-    } */
-    /* .backgroundBlock{
-        justify-content: flex-end;
-    } */
     .menuBox{
-    width: 315px;
+        width: 315px;
     }
     .button{
         width: 280px;
@@ -916,9 +738,6 @@ header{
     }
     #numberCard{
         font-size: 18px;
-    }
-    .main{
-        height: 94vh;
     }
     .boxstyleCard{
         grid-template-columns: repeat(2, max-content);
