@@ -60,11 +60,11 @@ send.addEventListener('click', (event) => {
                     </div>
                     <div class="box_pasworld_content">
                         <p class="password">введіть пароль</p>
-                        <input type="text" id="passwordInp1">
+                        <input type="password" id="passwordInp1">
                     </div>
                     <div class="box_pasworld_content">
                         <p class="repeatPassword">повторіть пароль</p>
-                        <input type="text" id="passwordInp2">
+                        <input type="password" id="passwordInp2">
                     </div>
                 </div>
 
